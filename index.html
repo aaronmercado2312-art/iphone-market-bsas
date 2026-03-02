@@ -70,51 +70,7 @@
 
   .product-card p {
     margin: 5px 0;
-  }
-
-  button {
-    background: #ff3b3f;
     color: #fff;
-    border: none;
-    padding: 10px 15px;
-    margin-top: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s;
-  }
-
-  button:hover {
-    background: #ff595d;
-  }
-
-  .cart {
-    position: fixed;
-    top: 100px;
-    right: 20px;
-    background: #222;
-    padding: 20px;
-    border-radius: 15px;
-    width: 280px;
-    max-height: 75vh;
-    overflow-y: auto;
-    box-shadow: 0 0 20px rgba(0,0,0,0.7);
-  }
-
-  .cart h2 {
-    margin-top: 0;
-    color: #ff9f3f;
-  }
-
-  .cart-item {
-    padding: 8px 0;
-    border-bottom: 1px solid #444;
-  }
-
-  #cart-total {
-    font-weight: bold;
-    margin-top: 10px;
-    color:#ff3b3f;
   }
 
   footer {
@@ -162,19 +118,12 @@
   <!-- Productos se generarán con JS -->
 </div>
 
-<div class="cart" id="cart">
-  <h2>Carrito</h2>
-  <p id="cart-empty">Tu carrito está vacío</p>
-  <div id="cart-items"></div>
-  <p id="cart-total"></p>
-</div>
-
 <footer>
   © 2026 mq_iphones - Todos los derechos reservados
 </footer>
 
 <script>
-// Lista de productos
+// Lista de productos con imagen y precio
 const products = [
   {name:"iPhone 8 Plus", price:250, img:"ruta/iphone8plus.jpg"},
   {name:"iPhone 11", price:400, img:"ruta/iphone11.jpg"},
@@ -186,39 +135,17 @@ const products = [
 ];
 
 const productsDiv = document.getElementById("products");
-const cartItemsDiv = document.getElementById("cart-items");
-const cartTotal = document.getElementById("cart-total");
-const cartEmpty = document.getElementById("cart-empty");
-let cart = [];
 
-products.forEach((p, idx)=>{
+products.forEach((p)=>{
   const card = document.createElement("div");
   card.className = "product-card";
-  card.innerHTML = `<img src="${p.img}" alt="${p.name}"><h3>${p.name}</h3><p>$${p.price}</p>`;
-  const btn = document.createElement("button");
-  btn.textContent = "Agregar al carrito";
-  btn.onclick = ()=>{
-    cart.push(p);
-    renderCart();
-  };
-  card.appendChild(btn);
+  card.innerHTML = `
+    <img src="${p.img}" alt="${p.name}">
+    <h3>${p.name}</h3>
+    <p>Precio: $${p.price}</p>
+  `;
   productsDiv.appendChild(card);
 });
-
-function renderCart(){
-  cartItemsDiv.innerHTML = "";
-  if(cart.length==0){ cartEmpty.style.display="block"; cartTotal.textContent=""; return; }
-  cartEmpty.style.display="none";
-  let total = 0;
-  cart.forEach((item)=>{
-    const div = document.createElement("div");
-    div.className="cart-item";
-    div.textContent = `${item.name} - $${item.price}`;
-    cartItemsDiv.appendChild(div);
-    total += item.price;
-  });
-  cartTotal.textContent = "Total: $" + total;
-}
 </script>
 
 </body>
