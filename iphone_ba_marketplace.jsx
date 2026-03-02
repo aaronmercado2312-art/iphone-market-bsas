@@ -1,52 +1,77 @@
-// App.jsx o iphone_ba_marketplace.jsx
-import React, { useState } from "react";
-import "./App.css"; // Para estilos
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>mq_iphones</title>
+<style>
+  body { margin:0; font-family: Arial; background: #000; color: #fff; }
+  header { text-align:center; padding:20px; font-size:2rem; }
+  .products { display:grid; grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); gap:20px; padding:20px; }
+  .product-card { background:#111; border-radius:10px; padding:15px; text-align:center; transition: transform .3s; }
+  .product-card:hover { transform: scale(1.05); }
+  .product-card img { width:100%; border-radius:10px; }
+  button { background:#ff3b3f; color:#fff; border:none; padding:10px 15px; margin-top:10px; cursor:pointer; border-radius:5px; }
+  button:hover { background:#ff595d; }
+  .cart { position:fixed; top:80px; right:20px; background:#111; padding:20px; border-radius:10px; width:250px; max-height:70vh; overflow-y:auto; }
+</style>
+</head>
+<body>
 
-const initialProducts = [
-  // Aquí irán tus productos, reemplaza las imágenes con las que me mandes
-  { id: 1, name: "iPhone 12", price: 400, image: "ruta/iphone12.jpg" },
-  { id: 2, name: "iPhone 13", price: 600, image: "ruta/iphone13.jpg" },
-  { id: 3, name: "iPhone 14", price: 800, image: "ruta/iphone14.jpg" }
+<header>mq_iphones</header>
+
+<div class="products" id="products">
+  <!-- Aquí se agregarán los productos desde JS -->
+</div>
+
+<div class="cart" id="cart">
+  <h2>Carrito</h2>
+  <p id="cart-empty">Tu carrito está vacío</p>
+  <div id="cart-items"></div>
+  <p id="cart-total"></p>
+</div>
+
+<script>
+const products = [
+  // Aquí puedes poner tus productos
+  {name:"iPhone 12", price:400, img:"ruta/iphone12.jpg"},
+  {name:"iPhone 13", price:600, img:"ruta/iphone13.jpg"},
+  {name:"iPhone 14", price:800, img:"ruta/iphone14.jpg"}
 ];
 
-export default function App() {
-  const [cart, setCart] = useState([]);
-  
-  const addToCart = (product) => {
-    setCart([...cart, product]);
+const productsDiv = document.getElementById("products");
+const cartItemsDiv = document.getElementById("cart-items");
+const cartTotal = document.getElementById("cart-total");
+const cartEmpty = document.getElementById("cart-empty");
+let cart = [];
+
+products.forEach((p, idx)=>{
+  const card = document.createElement("div");
+  card.className = "product-card";
+  card.innerHTML = `<img src="${p.img}" alt="${p.name}"><h3>${p.name}</h3><p>$${p.price}</p>`;
+  const btn = document.createElement("button");
+  btn.textContent = "Agregar al carrito";
+  btn.onclick = ()=>{
+    cart.push(p);
+    renderCart();
   };
+  card.appendChild(btn);
+  productsDiv.appendChild(card);
+});
 
-  return (
-    <div className="app">
-      <header>
-        <h1>mq_iphones</h1>
-      </header>
-
-      <main>
-        <div className="products">
-          {initialProducts.map(p => (
-            <div className="product-card" key={p.id}>
-              <img src={p.image} alt={p.name} />
-              <h3>{p.name}</h3>
-              <p>${p.price}</p>
-              <button onClick={() => addToCart(p)}>Agregar al carrito</button>
-            </div>
-          ))}
-        </div>
-      </main>
-
-      <aside className="cart">
-        <h2>Carrito</h2>
-        {cart.length === 0 && <p>Tu carrito está vacío</p>}
-        {cart.map((item, idx) => (
-          <div key={idx} className="cart-item">
-            {item.name} - ${item.price}
-          </div>
-        ))}
-        {cart.length > 0 && (
-          <p>Total: ${cart.reduce((acc, item) => acc + item.price, 0)}</p>
-        )}
-      </aside>
-    </div>
-  );
+function renderCart(){
+  cartItemsDiv.innerHTML = "";
+  if(cart.length==0){ cartEmpty.style.display="block"; cartTotal.textContent=""; return; }
+  cartEmpty.style.display="none";
+  let total = 0;
+  cart.forEach((item)=>{
+    const div = document.createElement("div");
+    div.textContent = `${item.name} - $${item.price}`;
+    cartItemsDiv.appendChild(div);
+    total += item.price;
+  });
+  cartTotal.textContent = "Total: $" + total;
 }
+</script>
+
+</body>
+</html>
