@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>mq_iphones</title>
 <style>
-  body { margin:0; font-family: Arial; background: #111; color:#fff; }
+  body { margin:0; font-family: Arial, sans-serif; background: #111; color:#fff; }
   header { text-align:center; padding:20px; background: linear-gradient(90deg,#ff3b3f,#ff9f3f); font-size:2.5rem; font-weight:bold; }
   nav { display:flex; justify-content:center; gap:20px; margin:15px 0; }
   nav button { padding:10px 15px; border:none; border-radius:5px; cursor:pointer; font-weight:bold; transition: background 0.3s; }
@@ -20,6 +20,8 @@
   .product-card img { width:100%; border-radius:10px; margin-bottom:10px;}
   .product-card h3 { margin:5px 0; color:#ff9f3f; }
   .product-card p { margin:3px 0; color:#fff; }
+  .home-logo { display:block; margin:30px auto; max-width:250px; border-radius:20px; }
+  .home-subtitle { text-align:center; font-size:1.2rem; color:#fff; margin-bottom:40px; line-height:1.5; }
   footer { text-align:center; padding:20px; background:#111; color:#aaa; font-size:0.9rem; margin-top:50px; }
 </style>
 </head>
@@ -40,8 +42,8 @@
 <footer>© 2026 mq_iphones - Todos los derechos reservados</footer>
 
 <script>
-// Datos de ejemplo
-const productosHome = [
+// Datos de productos
+const iphones = [
   {name:"iPhone 8 Plus", price:250, img:"ruta/iphone8plus.jpg"},
   {name:"iPhone 11", price:400, img:"ruta/iphone11.jpg"},
   {name:"iPhone XR", price:450, img:"ruta/iphonexr.jpg"},
@@ -79,25 +81,43 @@ function renderProducts(list){
   return container;
 }
 
-// Función para mostrar la página
+// Mostrar páginas
 function showPage(page){
   const content = document.getElementById("content");
-  content.innerHTML = ""; // limpiar
+  content.innerHTML = "";
+
   if(page==="home"){
-    content.appendChild(renderProducts(productosHome));
+    const homeDiv = document.createElement("div");
+
+    // Logo placeholder
+    const logo = document.createElement("img");
+    logo.src="ruta/logo.png"; // Reemplazar por tu logo
+    logo.alt="Logo mq_iphones";
+    logo.className="home-logo";
+
+    // Subtítulo llamativo
+    const subtitle = document.createElement("div");
+    subtitle.className="home-subtitle";
+    subtitle.innerHTML = `Bienvenido a <b>mq_iphones</b>, el lugar donde encontrarás los mejores iPhones y accesorios de <b>calidad premium</b>. Explora nuestra tienda y descubre los modelos más recientes y exclusivos.`;
+
+    homeDiv.appendChild(logo);
+    homeDiv.appendChild(subtitle);
+
+    content.appendChild(homeDiv);
   }else if(page==="iphones"){
-    content.appendChild(renderProducts(productosHome)); // Por ahora los mismos, luego reemplazar con fotos que me envíes
+    content.appendChild(renderProducts(iphones));
   }else if(page==="accesorios"){
     content.appendChild(renderProducts(accesorios));
   }
-  // Activar botón
+
+  // Botones activos
   document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
   if(page==="home") document.getElementById("homeBtn").classList.add("active");
   if(page==="iphones") document.getElementById("iphonesBtn").classList.add("active");
   if(page==="accesorios") document.getElementById("accesoriosBtn").classList.add("active");
 }
 
-// Eventos de navegación
+// Eventos botones
 document.getElementById("homeBtn").addEventListener("click", ()=>showPage("home"));
 document.getElementById("iphonesBtn").addEventListener("click", ()=>showPage("iphones"));
 document.getElementById("accesoriosBtn").addEventListener("click", ()=>showPage("accesorios"));
