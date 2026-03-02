@@ -1,72 +1,127 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aaron Store</title>
-<style>
+// App.jsx o iphone_ba_marketplace.jsx
+import React, { useState } from "react";
+import "./App.css"; // Para estilos
+
+const initialProducts = [
+  // Aquí irán tus productos, reemplaza las imágenes con las que me mandes
+  { id: 1, name: "iPhone 12", price: 400, image: "ruta/iphone12.jpg" },
+  { id: 2, name: "iPhone 13", price: 600, image: "ruta/iphone13.jpg" },
+  { id: 3, name: "iPhone 14", price: 800, image: "ruta/iphone14.jpg" }
+];
+
+export default function App() {
+  const [cart, setCart] = useState([]);
+  
+  const addToCart = (product) => {
+    setCart([...cart, product]);
+  };
+
+  return (
+    <div className="app">
+      <header>
+        <h1>mq_iphones</h1>
+      </header>
+
+      <main>
+        <div className="products">
+          {initialProducts.map(p => (
+            <div className="product-card" key={p.id}>
+              <img src={p.image} alt={p.name} />
+              <h3>{p.name}</h3>
+              <p>${p.price}</p>
+              <button onClick={() => addToCart(p)}>Agregar al carrito</button>
+            </div>
+          ))}
+        </div>
+      </main>
+
+      <aside className="cart">
+        <h2>Carrito</h2>
+        {cart.length === 0 && <p>Tu carrito está vacío</p>}
+        {cart.map((item, idx) => (
+          <div key={idx} className="cart-item">
+            {item.name} - ${item.price}
+          </div>
+        ))}
+        {cart.length > 0 && (
+          <p>Total: ${cart.reduce((acc, item) => acc + item.price, 0)}</p>
+        )}
+      </aside>
+    </div>
+  );
+}
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #111;
-    color: white;
-    text-align: center;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
 }
+
 header {
-    padding: 40px;
-    font-size: 32px;
-    font-weight: bold;
+  text-align: center;
+  padding: 20px;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  animation: fadeIn 1.5s ease-in-out;
 }
-.productos {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
 }
-.card {
-    background: #1c1c1c;
-    padding: 20px;
-    border-radius: 15px;
-    width: 250px;
+
+.product-card {
+  background: #111;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s;
 }
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
 button {
-    background: #0071e3;
-    border: none;
-    padding: 10px 20px;
-    color: white;
-    border-radius: 8px;
-    cursor: pointer;
+  background: #ff3b3f;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
 }
+
 button:hover {
-    background: #005bb5;
+  background: #ff595d;
 }
-</style>
-</head>
-<body>
 
-<header>📱 Aaron Store</header>
+.cart {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: #111;
+  padding: 20px;
+  border-radius: 10px;
+  width: 250px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
 
-<div class="productos">
+.cart-item {
+  padding: 5px 0;
+  border-bottom: 1px solid #333;
+}
 
-<div class="card">
-<h2>iPhone 13</h2>
-<p>$800 USD</p>
-<button>Comprar</button>
-</div>
-
-<div class="card">
-<h2>iPhone 14</h2>
-<p>$950 USD</p>
-<button>Comprar</button>
-</div>
-
-<div class="card">
-<h2>iPhone 15</h2>
-<p>$1100 USD</p>
-<button>Comprar</button>
-</div>
-
-</div>
-
-</body>
-</html>
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
