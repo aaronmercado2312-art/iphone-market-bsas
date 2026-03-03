@@ -20,19 +20,22 @@
     font-weight: bold;
     color: #fff;
     text-transform: uppercase;
+    background: linear-gradient(90deg, #ff3b3f, #ff9f3f); /* fondo naranja degradado */
   }
 
+  /* Subtítulo debajo del título */
   .subtitle {
     text-align: center;
-    font-size: 1rem;
-    color: #ccc;
-    margin-top: 10px;
+    font-size: 1.5rem; /* más grande */
+    color: #ff9f3f; /* naranja */
+    margin-top: 15px;
     line-height: 1.5;
   }
 
-  .white-bar {
+  /* Franja naranja */
+  .orange-bar {
     height: 40px;
-    background-color: #fff;
+    background-color: #ff3b3f;
   }
 
   .main-container {
@@ -52,7 +55,7 @@
   .sidebar h3 {
     margin-top: 0;
     margin-bottom: 15px;
-    color: #00bfff;
+    color: #ff9f3f;
   }
 
   .sidebar ul {
@@ -69,7 +72,7 @@
   }
 
   .sidebar ul li.active, .sidebar ul li:hover {
-    background: #00bfff;
+    background: #ff3b3f;
     color: #fff;
   }
 
@@ -99,7 +102,7 @@
 
   .product-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 15px rgba(0,191,255,0.5);
+    box-shadow: 0 0 15px rgba(255,159,63,0.5); /* sombra naranja */
   }
 
   .product-card img {
@@ -110,7 +113,7 @@
 
   .product-card h3 {
     margin: 5px 0;
-    color: #00bfff;
+    color: #ff9f3f; /* título producto naranja */
   }
 
   .product-card p {
@@ -135,7 +138,7 @@
   Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagram como <b>mq_iphone</b>.
 </div>
 
-<div class="white-bar"></div>
+<div class="orange-bar"></div>
 
 <div class="main-container">
   <div class="sidebar">
@@ -150,22 +153,21 @@
 
   <div class="content">
     <section id="inicio">
-      <!-- Aquí podrías poner un banner o logo -->
       <img src="ruta/logo.png" alt="Logo MQ_IPHONES" style="display:block;margin:20px auto;max-width:200px;border-radius:15px;">
     </section>
 
     <section id="todos">
-      <h2 style="color:#00bfff;">TODOS LOS PRODUCTOS</h2>
+      <h2 style="color:#ff9f3f;">TODOS LOS PRODUCTOS</h2>
       <div class="products" id="allProducts"></div>
     </section>
 
     <section id="iphones">
-      <h2 style="color:#00bfff;">IPHONES</h2>
+      <h2 style="color:#ff9f3f;">IPHONES</h2>
       <div class="products" id="iphoneProducts"></div>
     </section>
 
     <section id="accesorios">
-      <h2 style="color:#00bfff;">ACCESORIOS</h2>
+      <h2 style="color:#ff9f3f;">ACCESORIOS</h2>
       <div class="products" id="accesorioProducts"></div>
     </section>
   </div>
@@ -198,7 +200,7 @@ const accesorios = [
   {name:"Transparente iPhone 11/14 Pro", price:4500, img:"ruta/transparente.jpg"},
 ];
 
-// Función render
+// Render
 function renderProducts(list, containerId){
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -212,12 +214,11 @@ function renderProducts(list, containerId){
   });
 }
 
-// Renderizar todo
 renderProducts([...iphones, ...accesorios],"allProducts");
 renderProducts(iphones,"iphoneProducts");
 renderProducts(accesorios,"accesorioProducts");
 
-// Scroll Spy para activar barra lateral
+// Scroll spy
 const sections = document.querySelectorAll("section");
 const sidebarItems = document.querySelectorAll(".sidebar ul li");
 
@@ -233,7 +234,7 @@ window.addEventListener("scroll", ()=>{
   });
 });
 
-// Scroll al hacer click
+// Scroll al click
 sidebarItems.forEach(li=>{
   li.addEventListener("click", ()=>{
     const target = document.getElementById(li.dataset.target);
