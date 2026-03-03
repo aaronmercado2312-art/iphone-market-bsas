@@ -5,44 +5,157 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>mq_iphones</title>
 <style>
-  body { margin:0; font-family: Arial, sans-serif; background: #111; color:#fff; }
-  header { text-align:center; padding:20px; background: linear-gradient(90deg,#ff3b3f,#ff9f3f); font-size:2.5rem; font-weight:bold; }
-  nav { display:flex; justify-content:center; gap:20px; margin:15px 0; }
-  nav button { padding:10px 15px; border:none; border-radius:5px; cursor:pointer; font-weight:bold; transition: background 0.3s; }
-  nav button:hover { background:#ff595d; }
-  nav button.active { background:#ff3b3f; color:#fff; }
-  .location { text-align:center; color:#ccc; font-size:0.9rem; margin-bottom:20px; }
-  .section-title { text-align:center; font-size:1.5rem; color:#ff9f3f; margin-top:20px; margin-bottom:10px; }
-  .section-desc { text-align:center; color:#ccc; margin-bottom:20px; }
-  .products { display:grid; grid-template-columns: repeat(auto-fill,minmax(220px,1fr)); gap:25px; padding:20px; }
-  .product-card { background:#222; border-radius:15px; padding:15px; text-align:center; transition: transform 0.3s, box-shadow 0.3s; box-shadow:0 0 10px rgba(255,255,255,0.05);}
-  .product-card:hover { transform:scale(1.05); box-shadow:0 0 20px rgba(255,59,63,0.6);}
-  .product-card img { width:100%; border-radius:10px; margin-bottom:10px;}
-  .product-card h3 { margin:5px 0; color:#ff9f3f; }
-  .product-card p { margin:3px 0; color:#fff; }
-  .home-logo { display:block; margin:30px auto; max-width:250px; border-radius:20px; }
-  .home-subtitle { text-align:center; font-size:1.2rem; color:#fff; margin-bottom:40px; line-height:1.5; }
-  footer { text-align:center; padding:20px; background:#111; color:#aaa; font-size:0.9rem; margin-top:50px; }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color: #111;
+  }
+
+  header {
+    text-align: center;
+    padding: 50px 20px 20px 20px;
+    background: linear-gradient(90deg, #ff3b3f, #ff9f3f);
+    font-size: 3rem;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  /* Subtítulo debajo del título */
+  .subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-top: 10px;
+  }
+
+  /* Franja azul cielo */
+  .blue-bar {
+    height: 40px;
+    background-color: #00bfff;
+  }
+
+  /* Contenedor principal con barra lateral y contenido */
+  .main-container {
+    display: flex;
+    background-color: #fff;
+    color: #111;
+    min-height: calc(100vh - 160px);
+  }
+
+  /* Barra lateral izquierda */
+  .sidebar {
+    width: 200px;
+    background-color: #f0f0f0;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+  }
+
+  .sidebar h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #00bfff;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sidebar ul li {
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+    margin-bottom: 5px;
+  }
+
+  .sidebar ul li:hover, .sidebar ul li.active {
+    background-color: #00bfff;
+    color: #fff;
+  }
+
+  /* Contenido de productos */
+  .content {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+    gap: 20px;
+  }
+
+  .product-card {
+    background: #f9f9f9;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .product-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0,191,255,0.5);
+  }
+
+  .product-card img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+
+  .product-card h3 {
+    margin: 5px 0;
+    color: #00bfff;
+  }
+
+  .product-card p {
+    margin: 3px 0;
+    color: #111;
+  }
+
+  footer {
+    text-align:center;
+    padding:20px;
+    background:#111;
+    color:#aaa;
+    font-size:0.9rem;
+  }
 </style>
 </head>
 <body>
 
-<header>mq_iphones</header>
-<nav>
-  <button id="homeBtn" class="active">INICIO</button>
-  <button id="iphonesBtn">IPHONES</button>
-  <button id="accesoriosBtn">ACCESORIOS</button>
-</nav>
-<div class="location">Ubicación: Maquinista Savio, Buenos Aires, Argentina</div>
+<header>
+  mq_iphones
+  <div class="subtitle">
+    Bienvenido a <b>mq_iphones</b>, el lugar donde encontrarás los mejores iPhones y accesorios de <b>calidad premium</b>.
+  </div>
+</header>
 
-<div class="content" id="content">
-  <!-- Contenido dinámico -->
+<div class="blue-bar"></div>
+
+<div class="main-container">
+  <div class="sidebar">
+    <h3>Categorías</h3>
+    <ul>
+      <li id="allBtn" class="active">TODOS LOS PRODUCTOS</li>
+      <li id="iphonesBtn">IPHONES</li>
+      <li id="accesoriosBtn">ACCESORIOS</li>
+    </ul>
+  </div>
+
+  <div class="content" id="content">
+    <!-- Productos se mostrarán aquí -->
+  </div>
 </div>
 
 <footer>© 2026 mq_iphones - Todos los derechos reservados</footer>
 
 <script>
-// Datos de productos
+// Productos de ejemplo
 const iphones = [
   {name:"iPhone 8 Plus", price:250, img:"ruta/iphone8plus.jpg"},
   {name:"iPhone 11", price:400, img:"ruta/iphone11.jpg"},
@@ -81,49 +194,32 @@ function renderProducts(list){
   return container;
 }
 
-// Mostrar páginas
-function showPage(page){
+// Mostrar productos según categoría
+function showCategory(category){
   const content = document.getElementById("content");
   content.innerHTML = "";
-
-  if(page==="home"){
-    const homeDiv = document.createElement("div");
-
-    // Logo placeholder
-    const logo = document.createElement("img");
-    logo.src="ruta/logo.png"; // Reemplazar por tu logo
-    logo.alt="Logo mq_iphones";
-    logo.className="home-logo";
-
-    // Subtítulo llamativo
-    const subtitle = document.createElement("div");
-    subtitle.className="home-subtitle";
-    subtitle.innerHTML = `Bienvenido a <b>mq_iphones</b>, el lugar donde encontrarás los mejores iPhones y accesorios de <b>calidad premium</b>. Explora nuestra tienda y descubre los modelos más recientes y exclusivos.`;
-
-    homeDiv.appendChild(logo);
-    homeDiv.appendChild(subtitle);
-
-    content.appendChild(homeDiv);
-  }else if(page==="iphones"){
+  if(category==="all"){
+    content.appendChild(renderProducts([...iphones, ...accesorios]));
+  } else if(category==="iphones"){
     content.appendChild(renderProducts(iphones));
-  }else if(page==="accesorios"){
+  } else if(category==="accesorios"){
     content.appendChild(renderProducts(accesorios));
   }
 
-  // Botones activos
-  document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
-  if(page==="home") document.getElementById("homeBtn").classList.add("active");
-  if(page==="iphones") document.getElementById("iphonesBtn").classList.add("active");
-  if(page==="accesorios") document.getElementById("accesoriosBtn").classList.add("active");
+  // Activar botón de categoría
+  document.querySelectorAll(".sidebar ul li").forEach(li=>li.classList.remove("active"));
+  if(category==="all") document.getElementById("allBtn").classList.add("active");
+  if(category==="iphones") document.getElementById("iphonesBtn").classList.add("active");
+  if(category==="accesorios") document.getElementById("accesoriosBtn").classList.add("active");
 }
 
-// Eventos botones
-document.getElementById("homeBtn").addEventListener("click", ()=>showPage("home"));
-document.getElementById("iphonesBtn").addEventListener("click", ()=>showPage("iphones"));
-document.getElementById("accesoriosBtn").addEventListener("click", ()=>showPage("accesorios"));
+// Eventos
+document.getElementById("allBtn").addEventListener("click", ()=>showCategory("all"));
+document.getElementById("iphonesBtn").addEventListener("click", ()=>showCategory("iphones"));
+document.getElementById("accesoriosBtn").addEventListener("click", ()=>showCategory("accesorios"));
 
-// Mostrar inicio por defecto
-showPage("home");
+// Mostrar todos por defecto
+showCategory("all");
 </script>
 
 </body>
