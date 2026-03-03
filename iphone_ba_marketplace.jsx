@@ -12,6 +12,31 @@ body{
   background:#111;
   color:#fff;
   scroll-behavior:smooth;
+  overflow-x:hidden;
+}
+
+/* EFECTO FONDO LLAMATIVO */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  filter:blur(150px);
+  z-index:-1;
+}
+
+body::before{
+  background:#ff3b3f;
+  top:-150px;
+  left:-150px;
+}
+
+body::after{
+  background:#ff9f3f;
+  bottom:-150px;
+  right:-150px;
 }
 
 /* HEADER */
@@ -65,26 +90,9 @@ header{
   font-weight:bold;
   transition:all 0.3s ease;
   background:#222;
-  position:relative;
-  overflow:hidden;
 }
 
-.categories li::after{
-  content:"";
-  position:absolute;
-  bottom:0;
-  left:0;
-  width:0%;
-  height:3px;
-  background:#ff9f3f;
-  transition:0.4s;
-}
-
-.categories li:hover::after,
-.categories li.active::after{
-  width:100%;
-}
-
+.categories li:hover,
 .categories li.active{
   background:#ff3b3f;
 }
@@ -92,6 +100,8 @@ header{
 /* CONTENIDO */
 .content{
   padding:40px;
+  max-width:1300px;
+  margin:auto;
 }
 
 section{
@@ -163,9 +173,20 @@ section{
   color:#ff9f3f;
 }
 
+.price{
+  font-weight:bold;
+  margin-top:5px;
+}
+
+.details{
+  font-size:0.9rem;
+  color:#ccc;
+}
+
 .status{
   color:#00ff88;
   font-weight:bold;
+  margin-top:5px;
 }
 
 /* INSTAGRAM */
@@ -202,7 +223,7 @@ footer{
 
 <div class="subtitle">
 Bienvenido a MQ_IPHONES, el lugar donde encontrarás los mejores iPhones y accesorios de calidad premium.
-Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagram como mq_iphones.
+Aceptamos tu iPhone como parte de pago.
 </div>
 
 <div class="orange-bar"></div>
@@ -249,13 +270,14 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 </a>
 
 <script>
+
+/* SOLO LOS IPHONES QUE PEDISTE */
 const iphones=[
-{name:"iPhone 8 Plus",price:250,img:"https://via.placeholder.com/300"},
-{name:"iPhone 11",price:400,img:"https://via.placeholder.com/300"},
-{name:"iPhone XR",price:450,img:"https://via.placeholder.com/300"},
-{name:"iPhone 12",price:500,img:"https://via.placeholder.com/300"},
-{name:"iPhone 13",price:650,img:"https://via.placeholder.com/300"},
-{name:"iPhone 14",price:800,img:"https://via.placeholder.com/300"}
+{name:"iPhone 14 Pro",price:545,battery:"100%",storage:"128GB",img:"https://via.placeholder.com/300"},
+{name:"iPhone 14",price:410,battery:"86%",storage:"128GB",img:"https://via.placeholder.com/300"},
+{name:"iPhone 13 Pro",price:510,battery:"-",storage:"-",img:"https://via.placeholder.com/300"},
+{name:"iPhone 13",price:385,battery:"+80%",storage:"128GB",img:"https://via.placeholder.com/300"},
+{name:"iPhone 11",price:265,battery:"100%",storage:"64GB",img:"https://via.placeholder.com/300"}
 ];
 
 const accesorios=[
@@ -264,19 +286,23 @@ const accesorios=[
 {name:"Silicone case iPhone 13",price:7000,img:"https://via.placeholder.com/300"},
 {name:"Earpods",price:9000,img:"https://via.placeholder.com/300"},
 {name:"Airpods",price:24000,img:"https://via.placeholder.com/300"},
-{name:"Silicone Case iPh 11 Pro Max",price:8000,img:"case-11promax.png"}
+{name:"Silicone Case iPh 11 Pro Max",price:8000,img:"https://via.placeholder.com/300"}
 ];
 
-function renderProducts(list,id){
+function renderProducts(list,id,isIphone=false){
 const container=document.getElementById(id);
 container.innerHTML="";
-list.forEach((p,index)=>{
+list.forEach(p=>{
 container.innerHTML+=`
 <div class="product-card">
 <img src="${p.img}">
 <h3>${p.name}</h3>
-<p>Precio: $${p.price}</p>
-<p class="status">🟢 Disponible</p>
+<div class="price">$${p.price} ${isIphone ? "USD" : "ARS"}</div>
+${isIphone ? `
+<div class="details">🔋 Batería: ${p.battery}</div>
+<div class="details">🧠 Memoria: ${p.storage}</div>
+` : ``}
+<div class="status">🟢 Disponible</div>
 </div>
 `;
 });
@@ -288,11 +314,11 @@ card.classList.add("show");
 },100);
 }
 
-renderProducts([...iphones,...accesorios],"allProducts");
-renderProducts(iphones,"iphoneProducts");
-renderProducts(accesorios,"accesorioProducts");
+renderProducts([...iphones,...accesorios],"allProducts",true);
+renderProducts(iphones,"iphoneProducts",true);
+renderProducts(accesorios,"accesorioProducts",false);
 
-/* CATEGORÍAS FUNCIONALES */
+/* Categorías */
 const items=document.querySelectorAll(".categories li");
 items.forEach(item=>{
 item.addEventListener("click",()=>{
@@ -302,6 +328,7 @@ document.getElementById(item.dataset.target)
 .scrollIntoView({behavior:"smooth"});
 });
 });
+
 </script>
 
 </body>
