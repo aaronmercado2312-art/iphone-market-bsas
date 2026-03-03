@@ -6,334 +6,298 @@
 <title>MQ_IPHONES</title>
 
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family: Arial, Helvetica, sans-serif;
+scroll-behavior: smooth;
+}
+
 body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#111;
-  color:#fff;
-  scroll-behavior:smooth;
+background:black;
+color:white;
+display:flex;
 }
 
-/* HEADER */
-header{
-  text-align:center;
-  padding:60px 20px 10px 20px;
-  font-size:3.5rem;
-  font-weight:bold;
-  text-transform:uppercase;
-  background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
-  color:white;
-}
-
-.subtitle{
-  text-align:center;
-  font-size:1.7rem;
-  padding:25px;
-  background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
-  color:white;
-}
-
-.orange-bar{
-  height:40px;
-  background:#ff3b3f;
-}
-
-/* LAYOUT */
-.main-container{
-  display:flex;
-}
+/* ===== SIDEBAR ===== */
 
 .sidebar{
-  position:sticky;
-  top:0;
-  width:220px;
-  background:#111;
-  padding:20px;
+width:220px;
+background:#111;
+height:100vh;
+position:fixed;
+padding-top:40px;
 }
 
-.sidebar h3{
-  color:#ff9f3f;
+.sidebar a{
+display:block;
+color:white;
+text-decoration:none;
+padding:20px;
+font-weight:bold;
+transition:0.3s;
 }
 
-.sidebar ul{
-  list-style:none;
-  padding:0;
+.sidebar a:hover{
+background:orange;
+color:black;
 }
 
-.sidebar li{
-  padding:10px;
-  margin-bottom:5px;
-  cursor:pointer;
-  border-radius:6px;
-  transition:0.3s;
+/* ===== CONTENIDO ===== */
+
+.main{
+margin-left:220px;
+width:100%;
 }
 
-.sidebar li:hover,
-.sidebar li.active{
-  background:#ff3b3f;
-  color:white;
+/* ===== HEADER ===== */
+
+header{
+background:orange;
+text-align:center;
+padding:40px 20px;
 }
 
-.content{
-  flex:1;
-  padding:20px;
+header h1{
+font-size:55px;
+letter-spacing:3px;
 }
 
-section{
-  padding:80px 0;
+.subtitulo{
+background:orange;
+color:white;
+font-size:22px;
+padding:20px;
+text-align:center;
+font-weight:bold;
 }
 
-/* PRODUCTOS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:20px;
+/* ===== HERO IPHONE ===== */
+
+.hero{
+height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:40px;
 }
 
-.product-card{
-  background:#1c1c1c;
-  border-radius:15px;
-  padding:15px;
-  text-align:center;
-  transition:0.3s;
+.hero img{
+width:350px;
+max-width:90%;
+margin-bottom:30px;
 }
 
-.product-card:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 15px rgba(255,159,63,0.6);
+.hero h2{
+font-size:45px;
+margin-bottom:20px;
 }
 
-.product-card img{
-  width:100%;
-  border-radius:10px;
+.hero p{
+font-size:20px;
+color:#ccc;
+max-width:700px;
 }
 
-.product-card h3{
-  color:#ff9f3f;
+/* ===== INFO IMPORTANTE ===== */
+
+.info{
+text-align:center;
+padding:50px 20px;
 }
 
-.status{
-  color:#00ff88;
-  font-weight:bold;
+.info h3{
+font-size:35px;
+margin-bottom:25px;
 }
 
-/* PORQUE ELEGIRNOS GRANDE */
-.big-section{
-  min-height:90vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+.info p{
+font-size:20px;
+margin:10px 0;
 }
 
-.big-section h2{
-  font-size:3rem;
-  color:#ff9f3f;
-  margin-bottom:30px;
+/* ===== PRODUCTOS ===== */
+
+.section{
+padding:60px 20px;
+text-align:center;
 }
 
-.big-list{
-  font-size:1.8rem;
-  line-height:1.6; /* MÁS JUNTO */
-  max-width:800px;
+.section h2{
+font-size:40px;
+margin-bottom:40px;
 }
 
-/* CLIENTES */
-.clientes-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:20px;
-  margin-top:40px;
+.productos{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
 }
 
-.cliente-box{
-  height:150px;
-  background:#1c1c1c;
-  border-radius:15px;
-  border:2px dashed #ff9f3f;
+.card{
+background:#111;
+padding:20px;
+border-radius:15px;
+width:230px;
+transition:0.3s;
 }
 
-/* UBICACION */
-.ubicacion-box{
-  min-height:60vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:2rem;
-  text-align:center;
+.card:hover{
+transform:scale(1.05);
 }
 
-/* INSTAGRAM */
-.insta-btn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#E1306C;
-  color:white;
-  padding:15px 25px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 0 15px rgba(225,48,108,0.7);
-  transition:0.3s;
+.card img{
+width:100%;
+border-radius:10px;
+margin-bottom:15px;
 }
 
-.insta-btn:hover{
-  transform:scale(1.1);
+.card h4{
+margin-bottom:10px;
+}
+
+.disponible{
+color:lime;
+font-weight:bold;
+}
+
+/* ===== BOTON INSTAGRAM ===== */
+
+.instagram{
+margin-top:40px;
+}
+
+.instagram a{
+background:orange;
+color:black;
+padding:15px 30px;
+border-radius:30px;
+font-weight:bold;
+text-decoration:none;
+transition:0.3s;
+}
+
+.instagram a:hover{
+background:white;
 }
 
 footer{
-  text-align:center;
-  padding:20px;
-  color:#aaa;
+background:#111;
+text-align:center;
+padding:30px;
+margin-top:50px;
+color:#888;
 }
 </style>
 </head>
-
 <body>
 
-<header>MQ_IPHONES</header>
-
-<div class="subtitle">
-Bienvenido a MQ_IPHONES, el lugar donde encontrarás los mejores iPhones y accesorios de calidad premium.
-Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagram como mq_iphones.
-</div>
-
-<div class="orange-bar"></div>
-
-<div class="main-container">
-
 <div class="sidebar">
-<h3>Categorías</h3>
-<ul>
-<li data-target="inicio" class="active">INICIO</li>
-<li data-target="todos">TODOS LOS PRODUCTOS</li>
-<li data-target="iphones">IPHONES</li>
-<li data-target="accesorios">ACCESORIOS</li>
-<li data-target="porque">¿POR QUÉ ELEGIRNOS?</li>
-<li data-target="clientes">CLIENTES ❤️</li>
-<li data-target="ubicacion">UBICACIÓN</li>
-</ul>
+<a href="#inicio">INICIO</a>
+<a href="#todos">TODOS LOS PRODUCTOS</a>
+<a href="#iphones">IPHONES</a>
+<a href="#accesorios">ACCESORIOS</a>
 </div>
 
-<div class="content">
+<div class="main">
 
-<section id="inicio">
-<h2 style="color:#ff9f3f;">COMPRA Y VENTA DE IPHONES – CALIDAD PREMIUM 🔥</h2>
+<header>
+<h1>MQ_IPHONES</h1>
+</header>
+
+<div class="subtitulo">
+Bienvenido a MQ_IPHONES, el lugar donde encontrarás los mejores iPhones y accesorios de calidad premium. Aceptamos tu iPhone como parte de pago. Buscanos en Instagram como mq_iphones.
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+<img src="iphone-hero.png" alt="iPhone">
+<h2>Potencia. Diseño. Calidad Premium.</h2>
+<p>Compra y venta de iPhones originales en Maquinista Savio, Buenos Aires. Equipos seleccionados con el mejor rendimiento y estética impecable.</p>
 </section>
 
-<section id="todos">
-<h2 style="color:#ff9f3f;">TODOS LOS PRODUCTOS</h2>
-<div class="products" id="allProducts"></div>
-</section>
+<!-- INFO IMPORTANTE (más chica y apenas bajás ya aparece) -->
+<section class="info">
+<h3>¿Por qué elegir MQ_IPHONES?</h3>
+<p>📱 Equipos 100% originales</p>
+<p>🔋 Baterías en excelente estado</p>
+<p>💰 Tomamos tu iPhone como parte de pago</p>
+<p>🚚 Entregas en Maquinista Savio y alrededores</p>
+<p>💎 Calidad Premium garantizada</p>
 
-<section id="iphones">
-<h2 style="color:#ff9f3f;">IPHONES</h2>
-<div class="products" id="iphoneProducts"></div>
-</section>
-
-<section id="accesorios">
-<h2 style="color:#ff9f3f;">ACCESORIOS</h2>
-<div class="products" id="accesorioProducts"></div>
-</section>
-
-<section id="porque" class="big-section">
-<h2>¿POR QUÉ ELEGIRNOS?</h2>
-<div class="big-list">
-✅ Equipos 100% originales<br>
-🔋 Baterías en excelente estado<br>
-📱 Tomamos tu iPhone como parte de pago<br>
-🚚 Entregas en Maquinista Savio y alrededores<br>
-💎 Calidad Premium garantizada
+<div class="instagram">
+<a href="https://instagram.com/mq_iphones" target="_blank">IR A INSTAGRAM</a>
 </div>
 </section>
 
-<section id="clientes">
-<h2 style="color:#ff9f3f;">CLIENTES ❤️</h2>
-<div class="clientes-grid">
-<div class="cliente-box"></div>
-<div class="cliente-box"></div>
-<div class="cliente-box"></div>
-<div class="cliente-box"></div>
-<div class="cliente-box"></div>
+<!-- TODOS -->
+<section class="section" id="todos">
+<h2>TODOS LOS PRODUCTOS</h2>
+<div class="productos">
+
+<div class="card">
+<h4>iPhone 11</h4>
+<p>$ --- ARS</p>
+<p class="disponible">Disponible</p>
+</div>
+
+<div class="card">
+<h4>iPhone XR</h4>
+<p>$ --- ARS</p>
+<p class="disponible">Disponible</p>
+</div>
+
+<div class="card">
+<h4>iPhone 12</h4>
+<p>$ --- ARS</p>
+<p class="disponible">Disponible</p>
+</div>
+
+<div class="card">
+<h4>iPhone 13</h4>
+<p>$ --- ARS</p>
+<p class="disponible">Disponible</p>
+</div>
+
+<div class="card">
+<h4>iPhone 14</h4>
+<p>$ --- ARS</p>
+<p class="disponible">Disponible</p>
+</div>
+
+<div class="card">
+<h4>AirPods</h4>
+<p>$24000 ARS</p>
+<p class="disponible">Disponible</p>
+</div>
+
 </div>
 </section>
 
-<section id="ubicacion" class="ubicacion-box">
-📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.
+<!-- IPHONES -->
+<section class="section" id="iphones">
+<h2>IPHONES</h2>
+<p>Modelos disponibles: 8 Plus, XR, 11, 12, 13 y 14</p>
 </section>
 
+<!-- ACCESORIOS -->
+<section class="section" id="accesorios">
+<h2>ACCESORIOS</h2>
+<p>Lightning 1,2m - $6000</p>
+<p>Silicone Case - $7000</p>
+<p>Earpods - $9000</p>
+<p>Airpods - $24000</p>
+<p>Fundas transparentes - $4500</p>
+</section>
+
+<footer>
+MQ_IPHONES © 2026 - Maquinista Savio, Buenos Aires, Argentina
+</footer>
+
 </div>
-</div>
-
-<footer>© 2026 MQ_IPHONES - Todos los derechos reservados</footer>
-
-<a class="insta-btn" href="https://www.instagram.com/mq_iphones/" target="_blank">
-📲 Seguinos en Instagram
-</a>
-
-<script>
-const iphones=[
-{name:"iPhone 8 Plus",price:250,img:"https://via.placeholder.com/300"},
-{name:"iPhone 11",price:400,img:"https://via.placeholder.com/300"},
-{name:"iPhone XR",price:450,img:"https://via.placeholder.com/300"},
-{name:"iPhone 12",price:500,img:"https://via.placeholder.com/300"},
-{name:"iPhone 13",price:650,img:"https://via.placeholder.com/300"},
-{name:"iPhone 14",price:800,img:"https://via.placeholder.com/300"}
-];
-
-const accesorios=[
-{name:"Lightning 1,2m",price:6000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 12/12Pro",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 13",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Earpods",price:9000,img:"https://via.placeholder.com/300"},
-{name:"Airpods",price:24000,img:"https://via.placeholder.com/300"}
-];
-
-function renderProducts(list,id){
-const container=document.getElementById(id);
-container.innerHTML="";
-list.forEach(p=>{
-container.innerHTML+=`
-<div class="product-card">
-<img src="${p.img}">
-<h3>${p.name}</h3>
-<p>Precio: $${p.price}</p>
-<p class="status">🟢 Disponible</p>
-</div>
-`;
-});
-}
-
-renderProducts([...iphones,...accesorios],"allProducts");
-renderProducts(iphones,"iphoneProducts");
-renderProducts(accesorios,"accesorioProducts");
-
-const sections=document.querySelectorAll("section");
-const navItems=document.querySelectorAll(".sidebar li");
-
-window.addEventListener("scroll",()=>{
-let current="";
-sections.forEach(sec=>{
-if(scrollY>=sec.offsetTop-200){
-current=sec.id;
-}
-});
-navItems.forEach(li=>{
-li.classList.remove("active");
-if(li.dataset.target===current){
-li.classList.add("active");
-}
-});
-});
-
-navItems.forEach(li=>{
-li.addEventListener("click",()=>{
-document.getElementById(li.dataset.target).scrollIntoView({behavior:"smooth"});
-});
-});
-</script>
-
 </body>
 </html>
