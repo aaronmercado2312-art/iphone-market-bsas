@@ -17,8 +17,8 @@ body{
 /* HEADER */
 header{
   text-align:center;
-  padding:50px 20px 10px 20px;
-  font-size:3rem;
+  padding:60px 20px 10px 20px;
+  font-size:3.5rem;
   font-weight:bold;
   text-transform:uppercase;
   background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
@@ -27,11 +27,10 @@ header{
 
 .subtitle{
   text-align:center;
-  font-size:1.6rem;
-  padding:20px;
+  font-size:1.7rem;
+  padding:25px;
   background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
   color:white;
-  font-weight:500;
 }
 
 .orange-bar{
@@ -81,7 +80,7 @@ header{
 }
 
 section{
-  padding:60px 0;
+  padding:80px 0;
 }
 
 /* PRODUCTOS */
@@ -97,13 +96,6 @@ section{
   padding:15px;
   text-align:center;
   transition:0.3s;
-  opacity:0;
-  transform:translateY(20px);
-}
-
-.product-card.show{
-  opacity:1;
-  transform:translateY(0);
 }
 
 .product-card:hover{
@@ -125,12 +117,51 @@ section{
   font-weight:bold;
 }
 
-/* INFO SECTIONS */
-.info-box{
+/* SECCIÓN GRANDE PORQUE ELEGIRNOS */
+.big-section{
+  min-height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.big-section h2{
+  font-size:3rem;
+  color:#ff9f3f;
+  margin-bottom:40px;
+}
+
+.big-list{
+  font-size:1.8rem;
+  line-height:2.2;
+  max-width:800px;
+}
+
+/* CLIENTES */
+.clientes-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:20px;
+  margin-top:40px;
+}
+
+.cliente-box{
+  height:150px;
   background:#1c1c1c;
-  padding:20px;
   border-radius:15px;
-  margin-bottom:30px;
+  border:2px dashed #ff9f3f;
+}
+
+/* UBICACION GRANDE */
+.ubicacion-box{
+  min-height:60vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:2rem;
+  text-align:center;
 }
 
 /* BOTÓN INSTAGRAM */
@@ -140,7 +171,7 @@ section{
   right:20px;
   background:#E1306C;
   color:white;
-  padding:15px 20px;
+  padding:15px 25px;
   border-radius:50px;
   text-decoration:none;
   font-weight:bold;
@@ -163,6 +194,7 @@ footer{
 <body>
 
 <header>MQ_IPHONES</header>
+
 <div class="subtitle">
 Bienvenido a MQ_IPHONES, el lugar donde encontrarás los mejores iPhones y accesorios de calidad premium.
 Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagram como mq_iphones.
@@ -176,11 +208,8 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 <h3>Categorías</h3>
 <ul>
 <li data-target="inicio" class="active">INICIO</li>
-<li data-target="todos">TODOS LOS PRODUCTOS</li>
-<li data-target="iphones">IPHONES</li>
-<li data-target="accesorios">ACCESORIOS</li>
 <li data-target="porque">¿POR QUÉ ELEGIRNOS?</li>
-<li data-target="opiniones">OPINIONES</li>
+<li data-target="clientes">CLIENTES ❤️</li>
 <li data-target="ubicacion">UBICACIÓN</li>
 </ul>
 </div>
@@ -191,45 +220,30 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 <h2 style="color:#ff9f3f;">COMPRA Y VENTA DE IPHONES – CALIDAD PREMIUM 🔥</h2>
 </section>
 
-<section id="todos">
-<h2 style="color:#ff9f3f;">TODOS LOS PRODUCTOS</h2>
-<div class="products" id="allProducts"></div>
-</section>
-
-<section id="iphones">
-<h2 style="color:#ff9f3f;">IPHONES</h2>
-<div class="products" id="iphoneProducts"></div>
-</section>
-
-<section id="accesorios">
-<h2 style="color:#ff9f3f;">ACCESORIOS</h2>
-<div class="products" id="accesorioProducts"></div>
-</section>
-
-<section id="porque">
-<h2 style="color:#ff9f3f;">¿POR QUÉ ELEGIRNOS?</h2>
-<div class="info-box">
-✅ Equipos 100% originales<br>
-🔋 Baterías en excelente estado<br>
-📱 Tomamos tu iPhone como parte de pago<br>
-🚚 Entregas en Maquinista Savio y alrededores<br>
+<section id="porque" class="big-section">
+<h2>¿POR QUÉ ELEGIRNOS?</h2>
+<div class="big-list">
+✅ Equipos 100% originales<br><br>
+🔋 Baterías en excelente estado<br><br>
+📱 Tomamos tu iPhone como parte de pago<br><br>
+🚚 Entregas en Maquinista Savio y alrededores<br><br>
 💎 Calidad Premium garantizada
 </div>
 </section>
 
-<section id="opiniones">
-<h2 style="color:#ff9f3f;">OPINIONES DE CLIENTES</h2>
-<div class="info-box">
-⭐⭐⭐⭐⭐ Excelente atención y equipo como nuevo.<br><br>
-⭐⭐⭐⭐⭐ Muy recomendable, todo transparente y seguro.
+<section id="clientes">
+<h2 style="color:#ff9f3f;">CLIENTES ❤️</h2>
+<div class="clientes-grid">
+<div class="cliente-box"></div>
+<div class="cliente-box"></div>
+<div class="cliente-box"></div>
+<div class="cliente-box"></div>
+<div class="cliente-box"></div>
 </div>
 </section>
 
-<section id="ubicacion">
-<h2 style="color:#ff9f3f;">UBICACIÓN</h2>
-<div class="info-box">
+<section id="ubicacion" class="ubicacion-box">
 📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.
-</div>
 </section>
 
 </div>
@@ -237,70 +251,11 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 
 <footer>© 2026 MQ_IPHONES - Todos los derechos reservados</footer>
 
-<a class="insta-btn" href="https://instagram.com/mq_iphones" target="_blank">
-📲 Instagram
+<a class="insta-btn" href="https://www.instagram.com/mq_iphones/" target="_blank">
+📲 Seguinos en Instagram
 </a>
 
 <script>
-const iphones=[
-{name:"iPhone 8 Plus",price:250,img:"https://via.placeholder.com/300"},
-{name:"iPhone 11",price:400,img:"https://via.placeholder.com/300"},
-{name:"iPhone XR",price:450,img:"https://via.placeholder.com/300"},
-{name:"iPhone 12",price:500,img:"https://via.placeholder.com/300"},
-{name:"iPhone 13",price:650,img:"https://via.placeholder.com/300"},
-{name:"iPhone 14",price:800,img:"https://via.placeholder.com/300"}
-];
-
-const accesorios=[
-{name:"Lightning 1,2m",price:6000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 12/12Pro",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 13",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Earpods",price:9000,img:"https://via.placeholder.com/300"},
-{name:"Airpods",price:24000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 15",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 11",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 14 Pro",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 13 Pro",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 16/16 Pro",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Transparente iPhone 11/14 Pro",price:4500,img:"https://via.placeholder.com/300"}
-];
-
-function renderProducts(list,id){
-const container=document.getElementById(id);
-container.innerHTML="";
-list.forEach(p=>{
-const card=document.createElement("div");
-card.className="product-card";
-card.innerHTML=`
-<img src="${p.img}">
-<h3>${p.name}</h3>
-<p>Precio: $${p.price}</p>
-<p class="status">🟢 Disponible</p>
-`;
-container.appendChild(card);
-});
-}
-
-renderProducts([...iphones,...accesorios],"allProducts");
-renderProducts(iphones,"iphoneProducts");
-renderProducts(accesorios,"accesorioProducts");
-
-/* Animación al aparecer */
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(entry=>{
-if(entry.isIntersecting){
-entry.target.classList.add("show");
-}
-});
-});
-
-setTimeout(()=>{
-document.querySelectorAll(".product-card").forEach(card=>{
-observer.observe(card);
-});
-},500);
-
-/* Scroll spy */
 const sections=document.querySelectorAll("section");
 const navItems=document.querySelectorAll(".sidebar li");
 
