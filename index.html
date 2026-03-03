@@ -15,28 +15,37 @@ body{
   overflow-x:hidden;
 }
 
-/* EFECTO FONDO LLAMATIVO */
-body::before,
-body::after{
-  content:"";
+/* CÍRCULOS ESTÁTICOS DECORATIVOS */
+.bg-circle{
   position:fixed;
-  width:500px;
-  height:500px;
   border-radius:50%;
-  filter:blur(150px);
+  filter:blur(120px);
   z-index:-1;
+  opacity:0.6;
 }
 
-body::before{
+.circle1{
+  width:400px;
+  height:400px;
   background:#ff3b3f;
-  top:-150px;
-  left:-150px;
+  top:10%;
+  left:5%;
 }
 
-body::after{
+.circle2{
+  width:350px;
+  height:350px;
   background:#ff9f3f;
-  bottom:-150px;
-  right:-150px;
+  bottom:15%;
+  right:5%;
+}
+
+.circle3{
+  width:300px;
+  height:300px;
+  background:#ff3b3f;
+  top:60%;
+  left:40%;
 }
 
 /* HEADER */
@@ -88,7 +97,7 @@ header{
   cursor:pointer;
   border-radius:8px;
   font-weight:bold;
-  transition:all 0.3s ease;
+  transition:0.3s;
   background:#222;
 }
 
@@ -189,26 +198,6 @@ section{
   margin-top:5px;
 }
 
-/* INSTAGRAM */
-.insta-btn{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#E1306C;
-  color:white;
-  padding:18px 30px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:bold;
-  box-shadow:0 0 20px rgba(225,48,108,0.8);
-  transition:0.3s;
-  font-size:1.1rem;
-}
-
-.insta-btn:hover{
-  transform:scale(1.1);
-}
-
 footer{
   text-align:center;
   padding:20px;
@@ -219,37 +208,27 @@ footer{
 
 <body>
 
+<!-- CÍRCULOS -->
+<div class="bg-circle circle1"></div>
+<div class="bg-circle circle2"></div>
+<div class="bg-circle circle3"></div>
+
 <header>MQ_IPHONES</header>
 
 <div class="subtitle">
 Bienvenido a MQ_IPHONES, el lugar donde encontrarás los mejores iPhones y accesorios de calidad premium.
-Aceptamos tu iPhone como parte de pago.
 </div>
 
 <div class="orange-bar"></div>
 
 <div class="categories">
 <ul>
-<li data-target="inicio" class="active">INICIO</li>
-<li data-target="todos">TODOS</li>
-<li data-target="iphones">IPHONES</li>
+<li data-target="iphones" class="active">IPHONES</li>
 <li data-target="accesorios">ACCESORIOS</li>
 </ul>
 </div>
 
 <div class="content">
-
-<section id="inicio" class="hero">
-<div class="location-top">
-📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.
-</div>
-<img src="iphone.jpg">
-</section>
-
-<section id="todos">
-<h2 style="color:#ff9f3f;">TODOS LOS PRODUCTOS</h2>
-<div class="products" id="allProducts"></div>
-</section>
 
 <section id="iphones">
 <h2 style="color:#ff9f3f;">IPHONES</h2>
@@ -263,30 +242,22 @@ Aceptamos tu iPhone como parte de pago.
 
 </div>
 
-<footer>© 2026 MQ_IPHONES - Todos los derechos reservados</footer>
-
-<a class="insta-btn" href="https://www.instagram.com/" target="_blank">
-📲 Seguinos en Instagram
-</a>
+<footer>© 2026 MQ_IPHONES</footer>
 
 <script>
 
-/* SOLO LOS IPHONES QUE PEDISTE */
 const iphones=[
-{name:"iPhone 14 Pro",price:545,battery:"100%",storage:"128GB",img:"https://via.placeholder.com/300"},
-{name:"iPhone 14",price:410,battery:"86%",storage:"128GB",img:"https://via.placeholder.com/300"},
-{name:"iPhone 13 Pro",price:510,battery:"-",storage:"-",img:"https://via.placeholder.com/300"},
-{name:"iPhone 13",price:385,battery:"+80%",storage:"128GB",img:"https://via.placeholder.com/300"},
-{name:"iPhone 11",price:265,battery:"100%",storage:"64GB",img:"https://via.placeholder.com/300"}
+{name:"iPhone 14 Pro",price:545,battery:"100%",storage:"128GB",img:"iphone14 pro.png"},
+{name:"iPhone 14",price:410,battery:"86%",storage:"128GB",img:"iphone14.png"},
+{name:"iPhone 13 Pro",price:510,battery:"-",storage:"-",img:"iphone13.png"},
+{name:"iPhone 13",price:385,battery:"+80%",storage:"128GB",img:"iphone13.png"},
+{name:"iPhone 11",price:265,battery:"100%",storage:"64GB",img:"iphone11.png"}
 ];
 
 const accesorios=[
 {name:"Lightning 1,2m",price:6000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 12/12Pro",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 13",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Earpods",price:9000,img:"https://via.placeholder.com/300"},
-{name:"Airpods",price:24000,img:"https://via.placeholder.com/300"},
-{name:"Silicone Case iPh 11 Pro Max",price:8000,img:"https://via.placeholder.com/300"}
+{name:"Silicone Case iPh 11 Pro Max",price:8000,img:"https://via.placeholder.com/300"},
+{name:"Airpods",price:24000,img:"https://via.placeholder.com/300"}
 ];
 
 function renderProducts(list,id,isIphone=false){
@@ -314,7 +285,6 @@ card.classList.add("show");
 },100);
 }
 
-renderProducts([...iphones,...accesorios],"allProducts",true);
 renderProducts(iphones,"iphoneProducts",true);
 renderProducts(accesorios,"accesorioProducts",false);
 
