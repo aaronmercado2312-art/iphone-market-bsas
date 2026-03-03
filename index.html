@@ -117,7 +117,7 @@ section{
   font-weight:bold;
 }
 
-/* SECCIÓN GRANDE PORQUE ELEGIRNOS */
+/* PORQUE ELEGIRNOS GRANDE */
 .big-section{
   min-height:90vh;
   display:flex;
@@ -130,12 +130,12 @@ section{
 .big-section h2{
   font-size:3rem;
   color:#ff9f3f;
-  margin-bottom:40px;
+  margin-bottom:30px;
 }
 
 .big-list{
   font-size:1.8rem;
-  line-height:2.2;
+  line-height:1.6; /* MÁS JUNTO */
   max-width:800px;
 }
 
@@ -154,7 +154,7 @@ section{
   border:2px dashed #ff9f3f;
 }
 
-/* UBICACION GRANDE */
+/* UBICACION */
 .ubicacion-box{
   min-height:60vh;
   display:flex;
@@ -164,7 +164,7 @@ section{
   text-align:center;
 }
 
-/* BOTÓN INSTAGRAM */
+/* INSTAGRAM */
 .insta-btn{
   position:fixed;
   bottom:20px;
@@ -208,6 +208,9 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 <h3>Categorías</h3>
 <ul>
 <li data-target="inicio" class="active">INICIO</li>
+<li data-target="todos">TODOS LOS PRODUCTOS</li>
+<li data-target="iphones">IPHONES</li>
+<li data-target="accesorios">ACCESORIOS</li>
 <li data-target="porque">¿POR QUÉ ELEGIRNOS?</li>
 <li data-target="clientes">CLIENTES ❤️</li>
 <li data-target="ubicacion">UBICACIÓN</li>
@@ -220,13 +223,28 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 <h2 style="color:#ff9f3f;">COMPRA Y VENTA DE IPHONES – CALIDAD PREMIUM 🔥</h2>
 </section>
 
+<section id="todos">
+<h2 style="color:#ff9f3f;">TODOS LOS PRODUCTOS</h2>
+<div class="products" id="allProducts"></div>
+</section>
+
+<section id="iphones">
+<h2 style="color:#ff9f3f;">IPHONES</h2>
+<div class="products" id="iphoneProducts"></div>
+</section>
+
+<section id="accesorios">
+<h2 style="color:#ff9f3f;">ACCESORIOS</h2>
+<div class="products" id="accesorioProducts"></div>
+</section>
+
 <section id="porque" class="big-section">
 <h2>¿POR QUÉ ELEGIRNOS?</h2>
 <div class="big-list">
-✅ Equipos 100% originales<br><br>
-🔋 Baterías en excelente estado<br><br>
-📱 Tomamos tu iPhone como parte de pago<br><br>
-🚚 Entregas en Maquinista Savio y alrededores<br><br>
+✅ Equipos 100% originales<br>
+🔋 Baterías en excelente estado<br>
+📱 Tomamos tu iPhone como parte de pago<br>
+🚚 Entregas en Maquinista Savio y alrededores<br>
 💎 Calidad Premium garantizada
 </div>
 </section>
@@ -256,6 +274,42 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 </a>
 
 <script>
+const iphones=[
+{name:"iPhone 8 Plus",price:250,img:"https://via.placeholder.com/300"},
+{name:"iPhone 11",price:400,img:"https://via.placeholder.com/300"},
+{name:"iPhone XR",price:450,img:"https://via.placeholder.com/300"},
+{name:"iPhone 12",price:500,img:"https://via.placeholder.com/300"},
+{name:"iPhone 13",price:650,img:"https://via.placeholder.com/300"},
+{name:"iPhone 14",price:800,img:"https://via.placeholder.com/300"}
+];
+
+const accesorios=[
+{name:"Lightning 1,2m",price:6000,img:"https://via.placeholder.com/300"},
+{name:"Silicone case iPhone 12/12Pro",price:7000,img:"https://via.placeholder.com/300"},
+{name:"Silicone case iPhone 13",price:7000,img:"https://via.placeholder.com/300"},
+{name:"Earpods",price:9000,img:"https://via.placeholder.com/300"},
+{name:"Airpods",price:24000,img:"https://via.placeholder.com/300"}
+];
+
+function renderProducts(list,id){
+const container=document.getElementById(id);
+container.innerHTML="";
+list.forEach(p=>{
+container.innerHTML+=`
+<div class="product-card">
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<p>Precio: $${p.price}</p>
+<p class="status">🟢 Disponible</p>
+</div>
+`;
+});
+}
+
+renderProducts([...iphones,...accesorios],"allProducts");
+renderProducts(iphones,"iphoneProducts");
+renderProducts(accesorios,"accesorioProducts");
+
 const sections=document.querySelectorAll("section");
 const navItems=document.querySelectorAll(".sidebar li");
 
