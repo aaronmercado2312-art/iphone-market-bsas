@@ -38,7 +38,7 @@ header{
   background:#ff3b3f;
 }
 
-/* CATEGORÍAS DEBAJO DEL SUBTITULO */
+/* CATEGORÍAS */
 .categories{
   width:100%;
   display:flex;
@@ -63,11 +63,28 @@ header{
   cursor:pointer;
   border-radius:8px;
   font-weight:bold;
-  transition:0.3s;
+  transition:all 0.3s ease;
   background:#222;
+  position:relative;
+  overflow:hidden;
 }
 
-.categories li:hover,
+.categories li::after{
+  content:"";
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:0%;
+  height:3px;
+  background:#ff9f3f;
+  transition:0.4s;
+}
+
+.categories li:hover::after,
+.categories li.active::after{
+  width:100%;
+}
+
 .categories li.active{
   background:#ff3b3f;
 }
@@ -110,13 +127,6 @@ section{
   transform:scale(1.05);
 }
 
-.hero-info{
-  font-size:1.2rem;
-  line-height:1.8;
-  max-width:700px;
-  color:#ccc;
-}
-
 /* PRODUCTOS */
 .products{
   display:grid;
@@ -129,12 +139,19 @@ section{
   border-radius:15px;
   padding:15px;
   text-align:center;
-  transition:0.3s;
+  transition:0.4s;
+  opacity:0;
+  transform:translateY(40px);
+}
+
+.product-card.show{
+  opacity:1;
+  transform:translateY(0);
 }
 
 .product-card:hover{
   transform:scale(1.05);
-  box-shadow:0 0 15px rgba(255,159,63,0.6);
+  box-shadow:0 0 25px rgba(255,159,63,0.8);
 }
 
 .product-card img{
@@ -190,7 +207,6 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 
 <div class="orange-bar"></div>
 
-<!-- CATEGORÍAS NUEVAS -->
 <div class="categories">
 <ul>
 <li data-target="inicio" class="active">INICIO</li>
@@ -203,21 +219,10 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 <div class="content">
 
 <section id="inicio" class="hero">
-
 <div class="location-top">
 📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.
 </div>
-
 <img src="iphone.jpg">
-
-<div class="hero-info">
-✅ Equipos 100% originales<br>
-🔋 Baterías en excelente estado<br>
-📱 Tomamos tu iPhone como parte de pago<br>
-🚚 Entregas en Maquinista Savio y alrededores<br>
-💎 Calidad Premium garantizada
-</div>
-
 </section>
 
 <section id="todos">
@@ -239,7 +244,7 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 
 <footer>© 2026 MQ_IPHONES - Todos los derechos reservados</footer>
 
-<a class="insta-btn" href="https://www.instagram.com/mq_iphone?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+<a class="insta-btn" href="https://www.instagram.com/" target="_blank">
 📲 Seguinos en Instagram
 </a>
 
@@ -258,13 +263,14 @@ const accesorios=[
 {name:"Silicone case iPhone 12/12Pro",price:7000,img:"https://via.placeholder.com/300"},
 {name:"Silicone case iPhone 13",price:7000,img:"https://via.placeholder.com/300"},
 {name:"Earpods",price:9000,img:"https://via.placeholder.com/300"},
-{name:"Airpods",price:24000,img:"https://via.placeholder.com/300"}
+{name:"Airpods",price:24000,img:"https://via.placeholder.com/300"},
+{name:"Silicone Case iPh 11 Pro Max",price:8000,img:"case-11promax.png"}
 ];
 
 function renderProducts(list,id){
 const container=document.getElementById(id);
 container.innerHTML="";
-list.forEach(p=>{
+list.forEach((p,index)=>{
 container.innerHTML+=`
 <div class="product-card">
 <img src="${p.img}">
@@ -274,22 +280,26 @@ container.innerHTML+=`
 </div>
 `;
 });
+
+setTimeout(()=>{
+document.querySelectorAll(".product-card").forEach(card=>{
+card.classList.add("show");
+});
+},100);
 }
 
 renderProducts([...iphones,...accesorios],"allProducts");
 renderProducts(iphones,"iphoneProducts");
 renderProducts(accesorios,"accesorioProducts");
 
-/* FUNCIONALIDAD CATEGORÍAS */
+/* CATEGORÍAS FUNCIONALES */
 const items=document.querySelectorAll(".categories li");
-
 items.forEach(item=>{
 item.addEventListener("click",()=>{
 items.forEach(i=>i.classList.remove("active"));
 item.classList.add("active");
-
-const target=document.getElementById(item.dataset.target);
-target.scrollIntoView({behavior:"smooth"});
+document.getElementById(item.dataset.target)
+.scrollIntoView({behavior:"smooth"});
 });
 });
 </script>
