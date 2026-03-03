@@ -27,7 +27,7 @@ header{
 
 .subtitle{
   text-align:center;
-  font-size:1.7rem;
+  font-size:1.5rem;
   padding:25px;
   background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
   color:white;
@@ -38,49 +38,42 @@ header{
   background:#ff3b3f;
 }
 
-/* SIDEBAR TRANSPARENTE */
-.sidebar{
-  position:fixed;
-  left:0;
+/* CATEGORÍAS DEBAJO DEL SUBTITULO */
+.categories{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  background:#1a1a1a;
+  padding:15px 0;
+  position:sticky;
   top:0;
-  width:260px;
-  height:100vh;
-  padding:30px 20px;
-  backdrop-filter: blur(12px);
-  background:rgba(0,0,0,0.3);
-  border-right:1px solid rgba(255,255,255,0.1);
+  z-index:1000;
 }
 
-.sidebar h3{
-  color:#ff9f3f;
-  font-size:1.6rem;
-  margin-bottom:20px;
-}
-
-.sidebar ul{
+.categories ul{
   list-style:none;
+  display:flex;
+  gap:20px;
   padding:0;
+  margin:0;
 }
 
-.sidebar li{
-  padding:18px;
-  margin-bottom:15px;
+.categories li{
+  padding:12px 20px;
   cursor:pointer;
-  border-radius:10px;
-  transition:0.3s;
-  font-size:1.2rem;
+  border-radius:8px;
   font-weight:bold;
+  transition:0.3s;
+  background:#222;
 }
 
-.sidebar li:hover,
-.sidebar li.active{
+.categories li:hover,
+.categories li.active{
   background:#ff3b3f;
-  color:white;
 }
 
 /* CONTENIDO */
 .content{
-  margin-left:260px;
   padding:40px;
 }
 
@@ -197,11 +190,11 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 
 <div class="orange-bar"></div>
 
-<div class="sidebar">
-<h3>Categorías</h3>
+<!-- CATEGORÍAS NUEVAS -->
+<div class="categories">
 <ul>
 <li data-target="inicio" class="active">INICIO</li>
-<li data-target="todos">TODOS LOS PRODUCTOS</li>
+<li data-target="todos">TODOS</li>
 <li data-target="iphones">IPHONES</li>
 <li data-target="accesorios">ACCESORIOS</li>
 </ul>
@@ -286,6 +279,19 @@ container.innerHTML+=`
 renderProducts([...iphones,...accesorios],"allProducts");
 renderProducts(iphones,"iphoneProducts");
 renderProducts(accesorios,"accesorioProducts");
+
+/* FUNCIONALIDAD CATEGORÍAS */
+const items=document.querySelectorAll(".categories li");
+
+items.forEach(item=>{
+item.addEventListener("click",()=>{
+items.forEach(i=>i.classList.remove("active"));
+item.classList.add("active");
+
+const target=document.getElementById(item.dataset.target);
+target.scrollIntoView({behavior:"smooth"});
+});
+});
 </script>
 
 </body>
