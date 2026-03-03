@@ -13,6 +13,7 @@
     scroll-behavior: smooth;
   }
 
+  /* Header */
   header {
     text-align: center;
     padding: 50px 20px 20px 20px;
@@ -20,15 +21,17 @@
     font-weight: bold;
     color: #fff;
     text-transform: uppercase;
-    background: linear-gradient(90deg, #ff3b3f, #ff9f3f); /* fondo naranja degradado */
+    background: linear-gradient(90deg, #ff3b3f, #ff9f3f); /* naranja degradado */
   }
 
-  /* Subtítulo debajo del título */
+  /* Subtítulo debajo del header */
   .subtitle {
     text-align: center;
-    font-size: 1.5rem; /* más grande */
-    color: #ff9f3f; /* naranja */
-    margin-top: 15px;
+    font-size: 1.5rem;
+    color: #fff; /* blanco */
+    margin-top: 0;
+    padding: 20px;
+    background: linear-gradient(90deg, #ff3b3f, #ff9f3f); /* mismo fondo que header */
     line-height: 1.5;
   }
 
@@ -200,7 +203,7 @@ const accesorios = [
   {name:"Transparente iPhone 11/14 Pro", price:4500, img:"ruta/transparente.jpg"},
 ];
 
-// Render
+// Render productos
 function renderProducts(list, containerId){
   const container = document.getElementById(containerId);
   container.innerHTML = "";
