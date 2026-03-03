@@ -27,8 +27,8 @@ header{
 
 .subtitle{
   text-align:center;
-  font-size:1.3rem;
-  padding:20px;
+  font-size:1.7rem;
+  padding:25px;
   background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
   color:white;
 }
@@ -43,16 +43,20 @@ header{
   display:flex;
 }
 
+/* SIDEBAR MÁS GRANDE */
 .sidebar{
   position:sticky;
   top:0;
-  width:220px;
+  width:260px;
   background:#111;
-  padding:20px;
+  padding:30px 20px;
+  min-height:100vh;
 }
 
 .sidebar h3{
   color:#ff9f3f;
+  font-size:1.6rem;
+  margin-bottom:20px;
 }
 
 .sidebar ul{
@@ -61,11 +65,13 @@ header{
 }
 
 .sidebar li{
-  padding:10px;
-  margin-bottom:5px;
+  padding:18px;
+  margin-bottom:15px;
   cursor:pointer;
-  border-radius:6px;
+  border-radius:10px;
   transition:0.3s;
+  font-size:1.2rem;
+  font-weight:bold;
 }
 
 .sidebar li:hover,
@@ -76,14 +82,14 @@ header{
 
 .content{
   flex:1;
-  padding:20px;
+  padding:40px;
 }
 
 section{
-  padding:80px 0;
+  padding:100px 0;
 }
 
-/* INICIO ESTILO APPLE */
+/* HERO CON IMAGEN GRANDE */
 .hero{
   min-height:100vh;
   display:flex;
@@ -93,22 +99,11 @@ section{
   text-align:center;
 }
 
-.hero h1{
-  font-size:4rem;
-  margin-bottom:10px;
-}
-
-.hero h2{
-  font-size:1.8rem;
-  color:#ff9f3f;
-  margin-bottom:30px;
-}
-
 .hero img{
-  width:420px;
-  max-width:90%;
-  margin:30px 0;
-  filter:drop-shadow(0 0 50px rgba(255,159,63,0.6));
+  width:500px;
+  max-width:95%;
+  margin:40px 0;
+  filter:drop-shadow(0 0 60px rgba(255,159,63,0.6));
   transition:0.5s;
 }
 
@@ -117,9 +112,9 @@ section{
 }
 
 .hero-info{
-  font-size:1.1rem;
-  line-height:1.6;
-  max-width:600px;
+  font-size:1.2rem;
+  line-height:1.8;
+  max-width:700px;
   color:#ccc;
 }
 
@@ -172,6 +167,16 @@ section{
   border:2px dashed #ff9f3f;
 }
 
+/* UBICACION */
+.ubicacion-box{
+  min-height:60vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:2rem;
+  text-align:center;
+}
+
 /* INSTAGRAM */
 .insta-btn{
   position:fixed;
@@ -179,12 +184,13 @@ section{
   right:20px;
   background:#E1306C;
   color:white;
-  padding:15px 25px;
+  padding:18px 30px;
   border-radius:50px;
   text-decoration:none;
   font-weight:bold;
-  box-shadow:0 0 15px rgba(225,48,108,0.7);
+  box-shadow:0 0 20px rgba(225,48,108,0.8);
   transition:0.3s;
+  font-size:1.1rem;
 }
 
 .insta-btn:hover{
@@ -204,7 +210,8 @@ footer{
 <header>MQ_IPHONES</header>
 
 <div class="subtitle">
-Bienvenido a MQ_IPHONES. Calidad premium en cada equipo.
+Bienvenido a MQ_IPHONES, el lugar donde encontrarás los mejores iPhones y accesorios de calidad premium.
+Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagram como mq_iphones.
 </div>
 
 <div class="orange-bar"></div>
@@ -219,15 +226,13 @@ Bienvenido a MQ_IPHONES. Calidad premium en cada equipo.
 <li data-target="iphones">IPHONES</li>
 <li data-target="accesorios">ACCESORIOS</li>
 <li data-target="clientes">CLIENTES ❤️</li>
+<li data-target="ubicacion">UBICACIÓN</li>
 </ul>
 </div>
 
 <div class="content">
 
-<!-- INICIO NUEVO -->
 <section id="inicio" class="hero">
-<h1>iPhone. Potencia. Elegancia.</h1>
-<h2>Compra y Venta de iPhones 🔥</h2>
 
 <img src="11aee4d9-cbfa-4976-bae5-f440ac750293.png">
 
@@ -238,6 +243,7 @@ Bienvenido a MQ_IPHONES. Calidad premium en cada equipo.
 🚚 Entregas en Maquinista Savio y alrededores<br>
 💎 Calidad Premium garantizada
 </div>
+
 </section>
 
 <section id="todos">
@@ -266,12 +272,16 @@ Bienvenido a MQ_IPHONES. Calidad premium en cada equipo.
 </div>
 </section>
 
+<section id="ubicacion" class="ubicacion-box">
+📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.
+</section>
+
 </div>
 </div>
 
 <footer>© 2026 MQ_IPHONES - Todos los derechos reservados</footer>
 
-<a class="insta-btn" href="https://www.instagram.com/mq_iphones/" target="_blank">
+<a class="insta-btn" href="https://www.instagram.com/mq_iphone?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
 📲 Seguinos en Instagram
 </a>
 
