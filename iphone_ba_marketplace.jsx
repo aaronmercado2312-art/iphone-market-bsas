@@ -27,8 +27,8 @@ header{
 
 .subtitle{
   text-align:center;
-  font-size:1.7rem;
-  padding:25px;
+  font-size:1.3rem;
+  padding:20px;
   background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
   color:white;
 }
@@ -83,6 +83,46 @@ section{
   padding:80px 0;
 }
 
+/* INICIO ESTILO APPLE */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:4rem;
+  margin-bottom:10px;
+}
+
+.hero h2{
+  font-size:1.8rem;
+  color:#ff9f3f;
+  margin-bottom:30px;
+}
+
+.hero img{
+  width:420px;
+  max-width:90%;
+  margin:30px 0;
+  filter:drop-shadow(0 0 50px rgba(255,159,63,0.6));
+  transition:0.5s;
+}
+
+.hero img:hover{
+  transform:scale(1.05);
+}
+
+.hero-info{
+  font-size:1.1rem;
+  line-height:1.6;
+  max-width:600px;
+  color:#ccc;
+}
+
 /* PRODUCTOS */
 .products{
   display:grid;
@@ -117,28 +157,6 @@ section{
   font-weight:bold;
 }
 
-/* PORQUE ELEGIRNOS GRANDE */
-.big-section{
-  min-height:90vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-}
-
-.big-section h2{
-  font-size:3rem;
-  color:#ff9f3f;
-  margin-bottom:30px;
-}
-
-.big-list{
-  font-size:1.8rem;
-  line-height:1.6; /* MÁS JUNTO */
-  max-width:800px;
-}
-
 /* CLIENTES */
 .clientes-grid{
   display:grid;
@@ -152,16 +170,6 @@ section{
   background:#1c1c1c;
   border-radius:15px;
   border:2px dashed #ff9f3f;
-}
-
-/* UBICACION */
-.ubicacion-box{
-  min-height:60vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-size:2rem;
-  text-align:center;
 }
 
 /* INSTAGRAM */
@@ -196,8 +204,7 @@ footer{
 <header>MQ_IPHONES</header>
 
 <div class="subtitle">
-Bienvenido a MQ_IPHONES, el lugar donde encontrarás los mejores iPhones y accesorios de calidad premium.
-Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagram como mq_iphones.
+Bienvenido a MQ_IPHONES. Calidad premium en cada equipo.
 </div>
 
 <div class="orange-bar"></div>
@@ -211,16 +218,26 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 <li data-target="todos">TODOS LOS PRODUCTOS</li>
 <li data-target="iphones">IPHONES</li>
 <li data-target="accesorios">ACCESORIOS</li>
-<li data-target="porque">¿POR QUÉ ELEGIRNOS?</li>
 <li data-target="clientes">CLIENTES ❤️</li>
-<li data-target="ubicacion">UBICACIÓN</li>
 </ul>
 </div>
 
 <div class="content">
 
-<section id="inicio">
-<h2 style="color:#ff9f3f;">COMPRA Y VENTA DE IPHONES – CALIDAD PREMIUM 🔥</h2>
+<!-- INICIO NUEVO -->
+<section id="inicio" class="hero">
+<h1>iPhone. Potencia. Elegancia.</h1>
+<h2>Compra y Venta de iPhones 🔥</h2>
+
+<img src="11aee4d9-cbfa-4976-bae5-f440ac750293.png">
+
+<div class="hero-info">
+✅ Equipos 100% originales<br>
+🔋 Baterías en excelente estado<br>
+📱 Tomamos tu iPhone como parte de pago<br>
+🚚 Entregas en Maquinista Savio y alrededores<br>
+💎 Calidad Premium garantizada
+</div>
 </section>
 
 <section id="todos">
@@ -238,17 +255,6 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 <div class="products" id="accesorioProducts"></div>
 </section>
 
-<section id="porque" class="big-section">
-<h2>¿POR QUÉ ELEGIRNOS?</h2>
-<div class="big-list">
-✅ Equipos 100% originales<br>
-🔋 Baterías en excelente estado<br>
-📱 Tomamos tu iPhone como parte de pago<br>
-🚚 Entregas en Maquinista Savio y alrededores<br>
-💎 Calidad Premium garantizada
-</div>
-</section>
-
 <section id="clientes">
 <h2 style="color:#ff9f3f;">CLIENTES ❤️</h2>
 <div class="clientes-grid">
@@ -258,10 +264,6 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 <div class="cliente-box"></div>
 <div class="cliente-box"></div>
 </div>
-</section>
-
-<section id="ubicacion" class="ubicacion-box">
-📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.
 </section>
 
 </div>
