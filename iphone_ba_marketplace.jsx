@@ -38,15 +38,17 @@ header{
   background:#ff3b3f;
 }
 
-/* SIDEBAR FIJA */
+/* SIDEBAR TRANSPARENTE */
 .sidebar{
   position:fixed;
   left:0;
   top:0;
   width:260px;
   height:100vh;
-  background:#111;
   padding:30px 20px;
+  backdrop-filter: blur(12px);
+  background:rgba(0,0,0,0.3);
+  border-right:1px solid rgba(255,255,255,0.1);
 }
 
 .sidebar h3{
@@ -100,7 +102,7 @@ section{
   font-size:1.4rem;
   color:#ff9f3f;
   font-weight:bold;
-  margin-bottom:30px;
+  margin-bottom:25px;
 }
 
 .hero img{
@@ -156,21 +158,6 @@ section{
   font-weight:bold;
 }
 
-/* CLIENTES */
-.clientes-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:20px;
-  margin-top:40px;
-}
-
-.cliente-box{
-  height:150px;
-  background:#1c1c1c;
-  border-radius:15px;
-  border:2px dashed #ff9f3f;
-}
-
 /* INSTAGRAM */
 .insta-btn{
   position:fixed;
@@ -217,7 +204,6 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 <li data-target="todos">TODOS LOS PRODUCTOS</li>
 <li data-target="iphones">IPHONES</li>
 <li data-target="accesorios">ACCESORIOS</li>
-<li data-target="clientes">CLIENTES ❤️</li>
 </ul>
 </div>
 
@@ -226,7 +212,6 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 <section id="inicio" class="hero">
 
 <div class="location-top">
-📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.<br>
 📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.
 </div>
 
@@ -257,17 +242,6 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 <div class="products" id="accesorioProducts"></div>
 </section>
 
-<section id="clientes">
-<h2 style="color:#ff9f3f;">CLIENTES ❤️</h2>
-<div class="clientes-grid">
-<div class="cliente-box"></div>
-<div class="cliente-box"></div>
-<div class="cliente-box"></div>
-<div class="cliente-box"></div>
-<div class="cliente-box"></div>
-</div>
-</section>
-
 </div>
 
 <footer>© 2026 MQ_IPHONES - Todos los derechos reservados</footer>
@@ -277,29 +251,41 @@ Aceptamos tu iPhone como parte de pago. Cualquier consulta, búscanos en Instagr
 </a>
 
 <script>
-const sections=document.querySelectorAll("section");
-const navItems=document.querySelectorAll(".sidebar li");
+const iphones=[
+{name:"iPhone 8 Plus",price:250,img:"https://via.placeholder.com/300"},
+{name:"iPhone 11",price:400,img:"https://via.placeholder.com/300"},
+{name:"iPhone XR",price:450,img:"https://via.placeholder.com/300"},
+{name:"iPhone 12",price:500,img:"https://via.placeholder.com/300"},
+{name:"iPhone 13",price:650,img:"https://via.placeholder.com/300"},
+{name:"iPhone 14",price:800,img:"https://via.placeholder.com/300"}
+];
 
-window.addEventListener("scroll",()=>{
-let current="";
-sections.forEach(sec=>{
-if(scrollY>=sec.offsetTop-200){
-current=sec.id;
-}
-});
-navItems.forEach(li=>{
-li.classList.remove("active");
-if(li.dataset.target===current){
-li.classList.add("active");
-}
-});
-});
+const accesorios=[
+{name:"Lightning 1,2m",price:6000,img:"https://via.placeholder.com/300"},
+{name:"Silicone case iPhone 12/12Pro",price:7000,img:"https://via.placeholder.com/300"},
+{name:"Silicone case iPhone 13",price:7000,img:"https://via.placeholder.com/300"},
+{name:"Earpods",price:9000,img:"https://via.placeholder.com/300"},
+{name:"Airpods",price:24000,img:"https://via.placeholder.com/300"}
+];
 
-navItems.forEach(li=>{
-li.addEventListener("click",()=>{
-document.getElementById(li.dataset.target).scrollIntoView({behavior:"smooth"});
+function renderProducts(list,id){
+const container=document.getElementById(id);
+container.innerHTML="";
+list.forEach(p=>{
+container.innerHTML+=`
+<div class="product-card">
+<img src="${p.img}">
+<h3>${p.name}</h3>
+<p>Precio: $${p.price}</p>
+<p class="status">🟢 Disponible</p>
+</div>
+`;
 });
-});
+}
+
+renderProducts([...iphones,...accesorios],"allProducts");
+renderProducts(iphones,"iphoneProducts");
+renderProducts(accesorios,"accesorioProducts");
 </script>
 
 </body>
