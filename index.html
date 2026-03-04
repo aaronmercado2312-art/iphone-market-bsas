@@ -359,13 +359,13 @@ const accesorios=[
 {name:"Protectores de Cámaras",price:2500,img:"https://via.placeholder.com/300"}
 ];
 
-function renderProducts(list,id,type){
+function renderProducts(list,id){
 const container=document.getElementById(id);
 container.innerHTML="";
 
 list.forEach(p=>{
 
-let isIphone = type === "iphone";
+let isIphone = p.battery !== undefined;
 
 container.innerHTML+=`
 <div class="product-card">
@@ -390,15 +390,9 @@ card.classList.add("show");
 },100);
 }
 
-// TODOS
-renderProducts(
-[
-...iphones.map(p => ({...p})),
-...accesorios.map(p => ({...p}))
-],
-"allProducts",
-null
-);
+  renderProducts([...iphones,...accesorios],"allProducts");
+renderProducts(iphones,"iphoneProducts");
+renderProducts(accesorios,"accesorioProducts");
 
 // IPHONES
 renderProducts(iphones,"iphoneProducts","iphone");
