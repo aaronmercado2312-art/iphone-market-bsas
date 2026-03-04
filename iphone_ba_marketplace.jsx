@@ -283,7 +283,10 @@ Aceptamos tu iPhone como parte de pago.
 <section id="inicio" class="hero">
 <div class="location-top">
 📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.
-</div>
+</div
+
+  <img src="mqiphone.png" class="hero-logo" alt="MQ Logo">
+    
 <img src="iphone.jpg">
 <div class="hero-text">
 Equipos 100% originales 🔋  
