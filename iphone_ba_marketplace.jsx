@@ -5,17 +5,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MQ_IPHONES</title>
-
 <style>
 body{
   margin:0;
   font-family:Arial, sans-serif;
-  background:#111;
-  color:#fff;
+  background:#f4f9ff; /* fondo claro */
+  color:#1a1a1a;
   scroll-behavior:smooth;
   overflow-x:hidden;
 }
 
+/* EFECTOS DE FONDO CELESTES */
 body::before,
 body::after{
   content:"";
@@ -28,49 +28,53 @@ body::after{
 }
 
 body::before{
-  background:#ff3b3f;
+  background:#b3e5ff;
   top:-150px;
   left:-150px;
 }
 
 body::after{
-  background:#ff9f3f;
+  background:#d0f0ff;
   bottom:-150px;
   right:-150px;
 }
 
+/* HEADER */
 header{
   text-align:center;
   padding:60px 20px 10px 20px;
   font-size:3.5rem;
   font-weight:bold;
   text-transform:uppercase;
-  background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
+  background:linear-gradient(90deg,#0077ff,#00c6ff);
   color:white;
 }
 
+/* SUBTITULO */
 .subtitle{
   text-align:center;
   font-size:1.5rem;
   padding:25px;
-  background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
+  background:linear-gradient(90deg,#0077ff,#00c6ff);
   color:white;
 }
 
 .orange-bar{
   height:40px;
-  background:#ff3b3f;
+  background:#0077ff;
 }
 
+/* CATEGORÍAS */
 .categories{
   width:100%;
   display:flex;
   justify-content:center;
-  background:#1a1a1a;
+  background:white;
   padding:15px 0;
   position:sticky;
   top:0;
   z-index:1000;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 .categories ul{
@@ -87,14 +91,17 @@ header{
   border-radius:8px;
   font-weight:bold;
   transition:all 0.3s ease;
-  background:#222;
+  background:#eaf6ff;
+  color:#0077ff;
 }
 
 .categories li:hover,
 .categories li.active{
-  background:#ff3b3f;
+  background:#0077ff;
+  color:white;
 }
 
+/* CONTENIDO */
 .content{
   padding:40px;
   max-width:1300px;
@@ -105,13 +112,8 @@ section{
   padding:100px 0;
 }
 
+/* HERO */
 .hero{
-  .logo-hero{
-  width:220px;
-  max-width:90%;
-  margin:40px 0 10px 0;
-  filter:drop-shadow(0 0 25px rgba(255,59,63,0.6));
-}
   min-height:100vh;
   display:flex;
   flex-direction:column;
@@ -120,9 +122,16 @@ section{
   text-align:center;
 }
 
+.logo-hero{
+  width:220px;
+  max-width:90%;
+  margin:40px 0 10px 0;
+  filter:drop-shadow(0 0 25px rgba(0,119,255,0.4));
+}
+
 .location-top{
   font-size:1.4rem;
-  color:#ff9f3f;
+  color:#0077ff;
   font-weight:bold;
   margin-bottom:25px;
 }
@@ -131,7 +140,7 @@ section{
   width:500px;
   max-width:95%;
   margin:30px 0;
-  filter:drop-shadow(0 0 60px rgba(255,159,63,0.6));
+  filter:drop-shadow(0 0 40px rgba(0,119,255,0.3));
   transition:0.5s;
 }
 
@@ -143,10 +152,11 @@ section{
   max-width:700px;
   font-size:1.2rem;
   line-height:1.6;
-  color:#ddd;
+  color:#333;
   margin-top:20px;
 }
 
+/* PRODUCTOS */
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
@@ -154,13 +164,14 @@ section{
 }
 
 .product-card{
-  background:#1c1c1c;
+  background:white;
   border-radius:15px;
   padding:15px;
   text-align:center;
   transition:0.4s;
   opacity:0;
   transform:translateY(40px);
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
 .product-card.show{
@@ -170,7 +181,7 @@ section{
 
 .product-card:hover{
   transform:scale(1.05);
-  box-shadow:0 0 25px rgba(255,159,63,0.8);
+  box-shadow:0 0 25px rgba(0,119,255,0.3);
 }
 
 .product-card img{
@@ -179,7 +190,7 @@ section{
 }
 
 .product-card h3{
-  color:#ff9f3f;
+  color:#0077ff;
 }
 
 .price{
@@ -189,15 +200,16 @@ section{
 
 .details{
   font-size:0.9rem;
-  color:#ccc;
+  color:#555;
 }
 
 .status{
-  color:#00ff88;
+  color:#00aa66;
   font-weight:bold;
   margin-top:5px;
 }
 
+/* CLIENTES */
 .clients-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
@@ -208,11 +220,17 @@ section{
 
 .client-box{
   width:180px;
-  height:320px; /* formato vertical tipo historia */
+  height:320px;
   border-radius:20px;
   overflow:hidden;
   transition:0.3s;
-  background:#1c1c1c;
+  background:white;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+
+.client-box:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px rgba(0,119,255,0.3);
 }
 
 .client-box img{
@@ -221,33 +239,18 @@ section{
   object-fit:cover;
 }
 
-.client-box:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 25px rgba(255,159,63,0.9);
-}
-
-.client-box img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.client-box:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 20px rgba(255,159,63,0.8);
-}
-
+/* INSTAGRAM */
 .insta-btn{
   position:fixed;
   bottom:20px;
   right:20px;
-  background:#E1306C;
+  background:#0077ff;
   color:white;
   padding:18px 30px;
   border-radius:50px;
   text-decoration:none;
   font-weight:bold;
-  box-shadow:0 0 20px rgba(225,48,108,0.8);
+  box-shadow:0 0 20px rgba(0,119,255,0.4);
   transition:0.3s;
   font-size:1.1rem;
 }
@@ -256,10 +259,11 @@ section{
   transform:scale(1.1);
 }
 
+/* FOOTER */
 footer{
   text-align:center;
   padding:20px;
-  color:#aaa;
+  color:#555;
 }
 </style>
 </head>
