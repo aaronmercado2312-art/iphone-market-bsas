@@ -372,7 +372,7 @@ const accesorios=[
 {name:"Metal Case iPh 13 / 14",price:8500,img:"metalcase.png"},
 {name:"Glass 9D",price:1800,img:"glass9d.png"},
 {name:"Antiespía",price:2500,img:"antiespia.png"},
-{name:"Cargadores MagSafe",price:0,img:"cargadoresmagsafe.png"},
+{name:"Cargadores MagSafe",price:17000,img:"cargadoresmagsafe.png"},
 {name:"Protectores de Cámaras",price:2500,img:"protectoresdecamara.png"}
 ];
 
