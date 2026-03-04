@@ -91,6 +91,17 @@ header{
 
 .categories li:hover,
 .categories li.active{
+  .categories img{
+  height:45px;
+  margin:0 15px;
+  filter:drop-shadow(0 0 10px rgba(255,159,63,0.6));
+}
+
+.hero-logo{
+  width:180px;
+  margin:15px 0;
+  filter:drop-shadow(0 0 30px rgba(255,59,63,0.7));
+}
   background:#ff3b3f;
 }
 
