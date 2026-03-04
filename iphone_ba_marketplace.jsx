@@ -193,17 +193,30 @@ section{
 
 .clients-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
-  gap:20px;
+  grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
+  gap:25px;
   margin-top:40px;
+  justify-items:center;
 }
 
 .client-box{
-  background:#1c1c1c;
-  border-radius:15px;
+  width:180px;
+  height:320px; /* formato vertical tipo historia */
+  border-radius:20px;
   overflow:hidden;
-  height:220px;
   transition:0.3s;
+  background:#1c1c1c;
+}
+
+.client-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.client-box:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px rgba(255,159,63,0.9);
 }
 
 .client-box img{
