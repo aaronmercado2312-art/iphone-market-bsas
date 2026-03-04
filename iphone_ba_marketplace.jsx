@@ -359,23 +359,30 @@ const accesorios=[
 {name:"Protectores de Cámaras",price:2500,img:"https://via.placeholder.com/300"}
 ];
 
-function renderProducts(list,id,isIphone){
+function renderProducts(list,id,type){
 const container=document.getElementById(id);
 container.innerHTML="";
+
 list.forEach(p=>{
+
+let isIphone = type === "iphone";
+
 container.innerHTML+=`
 <div class="product-card">
 <img src="${p.img}">
 <h3>${p.name}</h3>
 <div class="price">$${p.price} ${isIphone ? "USD" : "ARS"}</div>
+
 ${isIphone ? `
 <div class="details">🔋 Batería: ${p.battery}</div>
 <div class="details">🧠 Memoria: ${p.storage}</div>
 ` : ``}
+
 <div class="status">🟢 Disponible</div>
 </div>
 `;
 });
+
 setTimeout(()=>{
 document.querySelectorAll(".product-card").forEach(card=>{
 card.classList.add("show");
@@ -383,9 +390,21 @@ card.classList.add("show");
 },100);
 }
 
-renderProducts([...iphones,...accesorios],"allProducts",true);
-renderProducts(iphones,"iphoneProducts",true);
-renderProducts(accesorios,"accesorioProducts",false);
+// TODOS
+renderProducts(
+[
+...iphones.map(p => ({...p})),
+...accesorios.map(p => ({...p}))
+],
+"allProducts",
+null
+);
+
+// IPHONES
+renderProducts(iphones,"iphoneProducts","iphone");
+
+// ACCESORIOS
+renderProducts(accesorios,"accesorioProducts","accesorio");
 
 /* Categorías */
 const items=document.querySelectorAll(".categories li");
