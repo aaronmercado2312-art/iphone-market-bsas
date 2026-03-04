@@ -15,7 +15,6 @@ body{
   overflow-x:hidden;
 }
 
-/* FONDO DIFUMINADO */
 body::before,
 body::after{
   content:"";
@@ -39,7 +38,6 @@ body::after{
   right:-150px;
 }
 
-/* HEADER */
 header{
   text-align:center;
   padding:60px 20px 10px 20px;
@@ -63,7 +61,6 @@ header{
   background:#ff3b3f;
 }
 
-/* CATEGORÍAS */
 .categories{
   width:100%;
   display:flex;
@@ -97,7 +94,6 @@ header{
   background:#ff3b3f;
 }
 
-/* CONTENIDO */
 .content{
   padding:40px;
   max-width:1300px;
@@ -108,7 +104,6 @@ section{
   padding:100px 0;
 }
 
-/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
@@ -145,7 +140,6 @@ section{
   margin-top:20px;
 }
 
-/* PRODUCTOS */
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
@@ -197,7 +191,6 @@ section{
   margin-top:5px;
 }
 
-/* CLIENTES */
 .clients-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
@@ -217,7 +210,6 @@ section{
   font-size:0.9rem;
 }
 
-/* INSTAGRAM */
 .insta-btn{
   position:fixed;
   bottom:20px;
@@ -273,7 +265,6 @@ Aceptamos tu iPhone como parte de pago.
 📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.
 </div>
 <img src="iphone.jpg">
-
 <div class="hero-text">
 Equipos 100% originales 🔋  
 Baterías en excelente estado 📱  
@@ -298,24 +289,9 @@ Calidad Premium garantizada 💎
 <div class="products" id="accesorioProducts"></div>
 </section>
 
-<section id="clientes">
-<h2 style="color:#ff9f3f;">CLIENTES ❤️</h2>
-<div class="clients-grid">
-<div class="client-box">Próximamente</div>
-<div class="client-box">Próximamente</div>
-<div class="client-box">Próximamente</div>
-<div class="client-box">Próximamente</div>
-<div class="client-box">Próximamente</div>
-</div>
-</section>
-
 </div>
 
 <footer>© 2026 MQ_IPHONES - Todos los derechos reservados</footer>
-
-<a class="insta-btn" href="https://www.instagram.com/mq_iphone?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
-📲 Seguinos en Instagram
-</a>
 
 <script>
 
@@ -327,57 +303,51 @@ const iphones=[
 {name:"iPhone 11",price:265,battery:"100%",storage:"64GB",img:"iphone11.png"}
 ];
 
-/* ACCESORIOS (SOLO PRECIO EN ARS) */
+/* ACCESORIOS */
 const accesorios=[
-{name:"Lightning 1,2m",price:6000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 12/12 Pro",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 13",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Earpods",price:9000,img:"https://via.placeholder.com/300"},
-{name:"Airpods",price:24000,img:"https://via.placeholder.com/300"},
-{name:"Silicone Case iPh 11 Pro Max",price:8000,img:"https://via.placeholder.com/300"},
-
-{name:"Silicone Case iPh 15",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone Case iPh 11",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone Case iPh 13 Pro",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone Case iPh 14 Pro",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone Case iPh 16 Pro Max",price:7000,img:"https://via.placeholder.com/300"},
-{name:"Silicone Case iPh 16 / 16 Pro",price:7000,img:"https://via.placeholder.com/300"},
-
-{name:"Transparentes iPh 11 / 14 Pro",price:4500,img:"https://via.placeholder.com/300"},
-{name:"MagSafe iPh 12 / 12 Pro / 13 Pro / 14 Pro / 15",price:10000,img:"https://via.placeholder.com/300"},
-{name:"Fashion Case iPh 11 / 12 / 14 Pro",price:8500,img:"https://via.placeholder.com/300"},
-{name:"Clear Case iPh 12 / 12 Pro / 13 Pro / 14 Pro",price:8000,img:"https://via.placeholder.com/300"},
-{name:"Transparentes Magnéticas iPh 12 / 13 / 13 Pro / 16 Pro Max / 17 Air",price:5000,img:"https://via.placeholder.com/300"},
-{name:"Importadas con Correa iPh 11 / 13",price:8000,img:"https://via.placeholder.com/300"},
-{name:"Case Animal Print",price:9000,img:"https://via.placeholder.com/300"},
-{name:"Magnetic iPh 13 / 14",price:8500,img:"https://via.placeholder.com/300"},
-{name:"Fashion Case iPh 11 / 13 / 13 Pro",price:8000,img:"https://via.placeholder.com/300"},
-{name:"Metal Case iPh 13 / 14",price:8500,img:"https://via.placeholder.com/300"},
-{name:"Glass 9D 11 / 13 / 13 Pro / 14 Pro / 15 / 16",price:1800,img:"https://via.placeholder.com/300"},
-{name:"Antiespía XR / 11 / 12 / 13 / 14 Pro",price:2500,img:"https://via.placeholder.com/300"},
-{name:"Cargadores MagSafe",price:0,img:"https://via.placeholder.com/300"},
-{name:"Protectores de Cámaras",price:2500,img:"https://via.placeholder.com/300"}
+{name:"Lightning 1,2m",price:6000,img:"lightning1,2m.png"},
+{name:"Silicone Case iPh 11",price:7000,img:"siliconecaseiph11.png"},
+{name:"Silicone Case iPh 13 Pro",price:7000,img:"siliconecaseiph13pro.png"},
+{name:"Silicone Case iPh 14 Pro",price:7000,img:"siliconecaseiph14pro.png"},
+{name:"Silicone Case iPh 16 Pro Max",price:7000,img:"siliconecaseiph16promax.png"},
+{name:"Silicone Case iPh 16 / 16 Pro",price:7000,img:"siliconecaseiph16.png"},
+{name:"Silicone case iPhone 13",price:7000,img:"siliconecaseiph13.png"},
+{name:"Earpods",price:9000,img:"earpods.png"},
+{name:"Airpods",price:24000,img:"airpods.png"},
+{name:"Fashion Case iPh 11 / 12 / 14 Pro",price:8500,img:"fashioncase2.png"},
+{name:"Transparentes iPh 11 / 14 Pro",price:4500,img:"transparentesiph1114pro.png"},
+{name:"MagSafe iPh 12 / 12 Pro / 13 Pro / 14 Pro / 15",price:10000,img:"magfaseiphall.png"},
+{name:"Clear Case iPh 12 / 12 Pro / 13 Pro / 14 Pro",price:8000,img:"clearcase.png"},
+{name:"Transparentes Magnéticas",price:5000,img:"transparentesmagneticas.png"},
+{name:"Importadas con Correa",price:8000,img:"importadasconcorrea.png"},
+{name:"Case Animal Print",price:9000,img:"caseanimalprint.png"},
+{name:"Magnetic iPh 13 / 14",price:8500,img:"magnetic.png"},
+{name:"Fashion Case iPh 11 / 13 / 13 Pro",price:8000,img:"fashioncase.png"},
+{name:"Metal Case iPh 13 / 14",price:8500,img:"metalcase.png"},
+{name:"Glass 9D",price:1800,img:"glass9d.png"},
+{name:"Antiespía",price:2500,img:"antiespia.png"},
+{name:"Cargadores MagSafe",price:0,img:"cargadoresmagsafe.png"},
+{name:"Protectores de Cámaras",price:2500,img:"protectoresdecamara.png"}
 ];
 
-function renderProducts(list,id,type){
+/* RENDER AUTOMÁTICO */
+function renderProducts(list,id){
 const container=document.getElementById(id);
 container.innerHTML="";
 
 list.forEach(p=>{
 
-let isIphone = type === "iphone";
+let isIphone = p.battery !== undefined;
 
 container.innerHTML+=`
 <div class="product-card">
 <img src="${p.img}">
 <h3>${p.name}</h3>
 <div class="price">$${p.price} ${isIphone ? "USD" : "ARS"}</div>
-
 ${isIphone ? `
 <div class="details">🔋 Batería: ${p.battery}</div>
 <div class="details">🧠 Memoria: ${p.storage}</div>
 ` : ``}
-
 <div class="status">🟢 Disponible</div>
 </div>
 `;
@@ -390,32 +360,10 @@ card.classList.add("show");
 },100);
 }
 
-// TODOS
-renderProducts(
-[
-...iphones.map(p => ({...p})),
-...accesorios.map(p => ({...p}))
-],
-"allProducts",
-null
-);
+renderProducts([...iphones,...accesorios],"allProducts");
+renderProducts(iphones,"iphoneProducts");
+renderProducts(accesorios,"accesorioProducts");
 
-// IPHONES
-renderProducts(iphones,"iphoneProducts","iphone");
-
-// ACCESORIOS
-renderProducts(accesorios,"accesorioProducts","accesorio");
-
-/* Categorías */
-const items=document.querySelectorAll(".categories li");
-items.forEach(item=>{
-item.addEventListener("click",()=>{
-items.forEach(i=>i.classList.remove("active"));
-item.classList.add("active");
-document.getElementById(item.dataset.target)
-.scrollIntoView({behavior:"smooth"});
-});
-});
 </script>
 
 </body>
