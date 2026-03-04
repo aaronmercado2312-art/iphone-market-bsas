@@ -313,8 +313,7 @@ Calidad Premium garantizada 💎
 
 <footer>© 2026 MQ_IPHONES - Todos los derechos reservados</footer>
 
-<!-- 🔥 CAMBIÁ EL LINK POR TU INSTAGRAM REAL -->
-<a class="insta-btn" href="https://www.instagram.com/mq_iphones" target="_blank">
+<a class="insta-btn" href="https://www.instagram.com/mq_iphone?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
 📲 Seguinos en Instagram
 </a>
 
@@ -328,6 +327,7 @@ const iphones=[
 {name:"iPhone 11",price:265,battery:"100%",storage:"64GB",img:"iphone11.png"}
 ];
 
+/* ACCESORIOS (SOLO PRECIO EN ARS) */
 const accesorios=[
 {name:"Lightning 1,2m",price:6000,img:"https://via.placeholder.com/300"},
 {name:"Silicone case iPhone 12/12Pro",price:7000,img:"https://via.placeholder.com/300"},
@@ -337,7 +337,7 @@ const accesorios=[
 {name:"Silicone Case iPh 11 Pro Max",price:8000,img:"https://via.placeholder.com/300"}
 ];
 
-function renderProducts(list,id,isIphone=false){
+function renderProducts(list,id,isIphone){
 const container=document.getElementById(id);
 container.innerHTML="";
 list.forEach(p=>{
