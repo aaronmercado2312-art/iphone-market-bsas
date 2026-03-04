@@ -310,7 +310,7 @@ Calidad Premium garantizada 💎
 </section>
 
 <section id="clientes">
-<h2 style="color:#ff9f3f;">CLIENTES ❤️</h2>
+<h2 style="color:#ff9f3f;"> ALGUNOS CLIENTES ❤️</h2>
 
 <div class="clients-grid">
 <div class="client-box"><img src="cliente1.png"></div>
