@@ -1,3 +1,4 @@
+quiero que entre medio de la barra de catalogo donde se encuentra inicio, todos, accesorios, iphones, clientes, y entre la ubicacion y la imagen que esta en el incio entre esas dos cosas se encuentra una imagen llamada mqiphone.png.
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -91,17 +92,6 @@ header{
 
 .categories li:hover,
 .categories li.active{
-  .categories img{
-  height:45px;
-  margin:0 15px;
-  filter:drop-shadow(0 0 10px rgba(255,159,63,0.6));
-}
-
-.hero-logo{
-  width:180px;
-  margin:15px 0;
-  filter:drop-shadow(0 0 30px rgba(255,59,63,0.7));
-}
   background:#ff3b3f;
 }
 
@@ -284,9 +274,6 @@ Aceptamos tu iPhone como parte de pago.
 <li data-target="inicio" class="active">INICIO</li>
 <li data-target="todos">TODOS</li>
 <li data-target="iphones">IPHONES</li>
-
-<img src="mqiphone.png" alt="MQ Logo">
-
 <li data-target="accesorios">ACCESORIOS</li>
 <li data-target="clientes">CLIENTES ❤️</li>
 </ul>
@@ -297,10 +284,7 @@ Aceptamos tu iPhone como parte de pago.
 <section id="inicio" class="hero">
 <div class="location-top">
 📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.
-</div
-
-  <img src="mqiphone.png" class="hero-logo" alt="MQ Logo">
-    
+</div>
 <img src="iphone.jpg">
 <div class="hero-text">
 Equipos 100% originales 🔋  
