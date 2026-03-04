@@ -3,237 +3,357 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MQ Store</title>
+<title>MQ_IPHONES</title>
 
 <style>
 body{
-margin:0;
-font-family:Arial, Helvetica, sans-serif;
-background:#0f0f0f;
-color:white;
-overflow-x:hidden;
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#111;
+  color:#fff;
+  scroll-behavior:smooth;
+  overflow-x:hidden;
+  position:relative;
 }
 
-/* 🔵 CIRCULOS ESTATICOS */
-.bg-pattern{
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-z-index:-1;
-background:
-radial-gradient(circle at 10% 20%, rgba(0,123,255,0.15) 0%, transparent 40%),
-radial-gradient(circle at 80% 30%, rgba(0,123,255,0.15) 0%, transparent 40%),
-radial-gradient(circle at 30% 80%, rgba(0,123,255,0.15) 0%, transparent 40%),
-radial-gradient(circle at 90% 90%, rgba(0,123,255,0.15) 0%, transparent 40%);
+/* FONDO DIFUMINADO ORIGINAL */
+body::before,
+body::after{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  filter:blur(150px);
+  z-index:-2;
 }
 
-/* Header */
+body::before{
+  background:#ff3b3f;
+  top:-150px;
+  left:-150px;
+}
+
+body::after{
+  background:#ff9f3f;
+  bottom:-150px;
+  right:-150px;
+}
+
+/* 🔴 CÍRCULOS ESTÁTICOS CON PATRÓN */
+.circle{
+  position:fixed;
+  width:15px;
+  height:15px;
+  background:#ff3b3f;
+  border-radius:50%;
+  opacity:0.4;
+  z-index:-1;
+}
+
+.left-pattern .circle{
+  left:20px;
+}
+
+.right-pattern .circle{
+  right:20px;
+}
+
+/* HEADER */
 header{
-text-align:center;
-padding:40px 20px 10px 20px;
+  text-align:center;
+  padding:60px 20px 10px 20px;
+  font-size:3.5rem;
+  font-weight:bold;
+  text-transform:uppercase;
+  background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
+  color:white;
 }
 
-header h1{
-font-size:40px;
-margin:0;
+.subtitle{
+  text-align:center;
+  font-size:1.5rem;
+  padding:25px;
+  background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
+  color:white;
 }
 
-header p{
-opacity:0.7;
-margin-top:10px;
+.orange-bar{
+  height:40px;
+  background:#ff3b3f;
 }
 
-/* Categorías */
+/* CATEGORÍAS */
 .categories{
-display:flex;
-justify-content:center;
-gap:20px;
-margin:20px 0;
-list-style:none;
-padding:0;
+  width:100%;
+  display:flex;
+  justify-content:center;
+  background:#1a1a1a;
+  padding:15px 0;
+  position:sticky;
+  top:0;
+  z-index:1000;
+}
+
+.categories ul{
+  list-style:none;
+  display:flex;
+  gap:20px;
+  padding:0;
+  margin:0;
 }
 
 .categories li{
-cursor:pointer;
-padding:10px 20px;
-border-radius:20px;
-background:#1c1c1c;
-transition:0.3s;
+  padding:12px 20px;
+  cursor:pointer;
+  border-radius:8px;
+  font-weight:bold;
+  transition:all 0.3s ease;
+  background:#222;
 }
 
 .categories li:hover,
 .categories li.active{
-background:#007bff;
+  background:#ff3b3f;
 }
 
-/* Productos */
-.section{
-padding:40px 10%;
+/* CONTENIDO */
+.content{
+  padding:40px;
+  max-width:1300px;
+  margin:auto;
 }
 
+section{
+  padding:100px 0;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.location-top{
+  font-size:1.4rem;
+  color:#ff9f3f;
+  font-weight:bold;
+  margin-bottom:25px;
+}
+
+.hero img{
+  width:500px;
+  max-width:95%;
+  margin:30px 0;
+  filter:drop-shadow(0 0 60px rgba(255,159,63,0.6));
+  transition:0.5s;
+}
+
+.hero img:hover{
+  transform:scale(1.05);
+}
+
+/* PRODUCTOS */
 .products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:20px;
 }
 
 .product-card{
-background:#1a1a1a;
-padding:20px;
-border-radius:15px;
-text-align:center;
-opacity:0;
-transform:translateY(30px);
-transition:0.6s;
+  background:#1c1c1c;
+  border-radius:15px;
+  padding:15px;
+  text-align:center;
+  transition:0.4s;
+  opacity:0;
+  transform:translateY(40px);
 }
 
 .product-card.show{
-opacity:1;
-transform:translateY(0);
+  opacity:1;
+  transform:translateY(0);
+}
+
+.product-card:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px rgba(255,159,63,0.8);
 }
 
 .product-card img{
-width:100%;
-max-height:300px;
-object-fit:contain;
-margin-bottom:15px;
+  width:100%;
+  border-radius:10px;
+}
+
+.product-card h3{
+  color:#ff9f3f;
 }
 
 .price{
-font-size:22px;
-color:#00ff88;
-margin:10px 0;
+  font-weight:bold;
+  margin-top:5px;
 }
 
 .details{
-font-size:14px;
-opacity:0.8;
+  font-size:0.9rem;
+  color:#ccc;
 }
 
 .status{
-margin-top:10px;
-font-size:14px;
-color:#00ff88;
+  color:#00ff88;
+  font-weight:bold;
+  margin-top:5px;
 }
 
+/* INSTAGRAM */
+.insta-btn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#E1306C;
+  color:white;
+  padding:18px 30px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:bold;
+  box-shadow:0 0 20px rgba(225,48,108,0.8);
+  transition:0.3s;
+  font-size:1.1rem;
+}
+
+.insta-btn:hover{
+  transform:scale(1.1);
+}
+
+footer{
+  text-align:center;
+  padding:20px;
+  color:#aaa;
+}
 </style>
 </head>
+
 <body>
 
-<div class="bg-pattern"></div>
+<!-- CÍRCULOS IZQUIERDA -->
+<div class="left-pattern">
+  <div class="circle" style="top:100px;"></div>
+  <div class="circle" style="top:300px;"></div>
+  <div class="circle" style="top:500px;"></div>
+  <div class="circle" style="top:700px;"></div>
+  <div class="circle" style="top:900px;"></div>
+</div>
 
-<header>
-<h1>MQ Store</h1>
-<p>iPhones y accesorios originales</p>
-</header>
+<!-- CÍRCULOS DERECHA -->
+<div class="right-pattern">
+  <div class="circle" style="top:200px;"></div>
+  <div class="circle" style="top:400px;"></div>
+  <div class="circle" style="top:600px;"></div>
+  <div class="circle" style="top:800px;"></div>
+  <div class="circle" style="top:1000px;"></div>
+</div>
 
-<ul class="categories">
-<li class="active" data-target="iphones">iPhones</li>
-<li data-target="accesorios">Accesorios</li>
+<header>MQ_IPHONES</header>
+
+<div class="subtitle">
+Bienvenido a MQ_IPHONES, el lugar donde encontrarás los mejores iPhones y accesorios de calidad premium.
+Aceptamos tu iPhone como parte de pago.
+</div>
+
+<div class="orange-bar"></div>
+
+<div class="categories">
+<ul>
+<li data-target="inicio" class="active">INICIO</li>
+<li data-target="todos">TODOS</li>
+<li data-target="iphones">IPHONES</li>
+<li data-target="accesorios">ACCESORIOS</li>
 </ul>
+</div>
 
-<!-- iPhones -->
-<section id="iphones" class="section">
-<h2>iPhones</h2>
+<div class="content">
+
+<section id="inicio" class="hero">
+<div class="location-top">
+📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.
+</div>
+<img src="iphone.jpg">
+</section>
+
+<section id="todos">
+<h2 style="color:#ff9f3f;">TODOS LOS PRODUCTOS</h2>
+<div class="products" id="allProducts"></div>
+</section>
+
+<section id="iphones">
+<h2 style="color:#ff9f3f;">IPHONES</h2>
 <div class="products" id="iphoneProducts"></div>
 </section>
 
-<!-- Accesorios -->
-<section id="accesorios" class="section">
-<h2>Accesorios</h2>
+<section id="accesorios">
+<h2 style="color:#ff9f3f;">ACCESORIOS</h2>
 <div class="products" id="accesorioProducts"></div>
 </section>
 
+</div>
+
+<footer>© 2026 MQ_IPHONES - Todos los derechos reservados</footer>
+
+<a class="insta-btn" href="https://www.instagram.com/" target="_blank">
+📲 Seguinos en Instagram
+</a>
+
 <script>
 
-/* iPhones */
+/* IPHONES CON TUS IMÁGENES */
 const iphones=[
-{
-name:"iPhone 14 Pro",
-price:545,
-battery:"100%",
-storage:"128GB",
-img:"iphone14 pro.png"
-},
-{
-name:"iPhone 14",
-price:410,
-battery:"86%",
-storage:"128GB",
-img:"iphone14.png"
-},
-{
-name:"iPhone 13 Pro",
-price:510,
-battery:"-",
-storage:"-",
-img:"https://via.placeholder.com/400x500?text=iPhone+13+Pro"
-},
-{
-name:"iPhone 13",
-price:385,
-battery:"+80%",
-storage:"128GB",
-img:"iphone13.png"
-},
-{
-name:"iPhone 11",
-price:265,
-battery:"100%",
-storage:"64GB",
-img:"iphone11.png"
-}
+{name:"iPhone 14 Pro",price:545,battery:"100%",storage:"128GB",img:"iphone14 pro.png"},
+{name:"iPhone 14",price:410,battery:"86%",storage:"128GB",img:"iphone14.png"},
+{name:"iPhone 13",price:385,battery:"+80%",storage:"128GB",img:"iphone13.png"},
+{name:"iPhone 11",price:265,battery:"100%",storage:"64GB",img:"iphone11.png"}
 ];
 
-/* Accesorios */
 const accesorios=[
-{name:"Lightning 1,2m",price:6000},
-{name:"Silicone Case iPh 11 Pro Max",price:8000},
-{name:"Airpods",price:24000}
+{name:"Lightning 1,2m",price:6000,img:"https://via.placeholder.com/300"},
+{name:"Silicone case iPhone 12/12Pro",price:7000,img:"https://via.placeholder.com/300"},
+{name:"Silicone case iPhone 13",price:7000,img:"https://via.placeholder.com/300"},
+{name:"Earpods",price:9000,img:"https://via.placeholder.com/300"},
+{name:"Airpods",price:24000,img:"https://via.placeholder.com/300"},
+{name:"Silicone Case iPh 11 Pro Max",price:8000,img:"https://via.placeholder.com/300"}
 ];
 
-function renderIphones(){
-const container=document.getElementById("iphoneProducts");
+function renderProducts(list,id,isIphone=false){
+const container=document.getElementById(id);
 container.innerHTML="";
-iphones.forEach(p=>{
+list.forEach(p=>{
 container.innerHTML+=`
 <div class="product-card">
 <img src="${p.img}">
 <h3>${p.name}</h3>
-<div class="price">$${p.price} USD</div>
+<div class="price">$${p.price} ${isIphone ? "USD" : "ARS"}</div>
+${isIphone ? `
 <div class="details">🔋 Batería: ${p.battery}</div>
 <div class="details">🧠 Memoria: ${p.storage}</div>
+` : ``}
 <div class="status">🟢 Disponible</div>
 </div>
 `;
 });
-}
-
-function renderAccesorios(){
-const container=document.getElementById("accesorioProducts");
-container.innerHTML="";
-accesorios.forEach(p=>{
-container.innerHTML+=`
-<div class="product-card">
-<img src="https://via.placeholder.com/400x500?text=Accesorio">
-<h3>${p.name}</h3>
-<div class="price">$${p.price} ARS</div>
-<div class="status">🟢 Disponible</div>
-</div>
-`;
-});
-}
-
-renderIphones();
-renderAccesorios();
 
 setTimeout(()=>{
 document.querySelectorAll(".product-card").forEach(card=>{
 card.classList.add("show");
 });
 },100);
+}
+
+renderProducts([...iphones,...accesorios],"allProducts",true);
+renderProducts(iphones,"iphoneProducts",true);
+renderProducts(accesorios,"accesorioProducts",false);
 
 /* Categorías */
 const items=document.querySelectorAll(".categories li");
