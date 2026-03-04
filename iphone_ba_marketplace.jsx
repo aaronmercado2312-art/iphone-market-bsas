@@ -13,10 +13,9 @@ body{
   color:#fff;
   scroll-behavior:smooth;
   overflow-x:hidden;
-  position:relative;
 }
 
-/* FONDO DIFUMINADO ORIGINAL */
+/* FONDO DIFUMINADO */
 body::before,
 body::after{
   content:"";
@@ -25,7 +24,7 @@ body::after{
   height:500px;
   border-radius:50%;
   filter:blur(150px);
-  z-index:-2;
+  z-index:-1;
 }
 
 body::before{
@@ -38,25 +37,6 @@ body::after{
   background:#ff9f3f;
   bottom:-150px;
   right:-150px;
-}
-
-/* 🔴 CÍRCULOS ESTÁTICOS CON PATRÓN */
-.circle{
-  position:fixed;
-  width:15px;
-  height:15px;
-  background:#ff3b3f;
-  border-radius:50%;
-  opacity:0.4;
-  z-index:-1;
-}
-
-.left-pattern .circle{
-  left:20px;
-}
-
-.right-pattern .circle{
-  right:20px;
 }
 
 /* HEADER */
@@ -157,6 +137,14 @@ section{
   transform:scale(1.05);
 }
 
+.hero-text{
+  max-width:700px;
+  font-size:1.2rem;
+  line-height:1.6;
+  color:#ddd;
+  margin-top:20px;
+}
+
 /* PRODUCTOS */
 .products{
   display:grid;
@@ -209,6 +197,26 @@ section{
   margin-top:5px;
 }
 
+/* CLIENTES */
+.clients-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:20px;
+  margin-top:40px;
+}
+
+.client-box{
+  background:#1c1c1c;
+  height:150px;
+  border-radius:15px;
+  border:2px dashed #ff9f3f;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#777;
+  font-size:0.9rem;
+}
+
 /* INSTAGRAM */
 .insta-btn{
   position:fixed;
@@ -239,24 +247,6 @@ footer{
 
 <body>
 
-<!-- CÍRCULOS IZQUIERDA -->
-<div class="left-pattern">
-  <div class="circle" style="top:100px;"></div>
-  <div class="circle" style="top:300px;"></div>
-  <div class="circle" style="top:500px;"></div>
-  <div class="circle" style="top:700px;"></div>
-  <div class="circle" style="top:900px;"></div>
-</div>
-
-<!-- CÍRCULOS DERECHA -->
-<div class="right-pattern">
-  <div class="circle" style="top:200px;"></div>
-  <div class="circle" style="top:400px;"></div>
-  <div class="circle" style="top:600px;"></div>
-  <div class="circle" style="top:800px;"></div>
-  <div class="circle" style="top:1000px;"></div>
-</div>
-
 <header>MQ_IPHONES</header>
 
 <div class="subtitle">
@@ -272,6 +262,7 @@ Aceptamos tu iPhone como parte de pago.
 <li data-target="todos">TODOS</li>
 <li data-target="iphones">IPHONES</li>
 <li data-target="accesorios">ACCESORIOS</li>
+<li data-target="clientes">CLIENTES ❤️</li>
 </ul>
 </div>
 
@@ -282,6 +273,14 @@ Aceptamos tu iPhone como parte de pago.
 📍 Estamos en Maquinista Savio, Buenos Aires, Argentina.
 </div>
 <img src="iphone.jpg">
+
+<div class="hero-text">
+Equipos 100% originales 🔋  
+Baterías en excelente estado 📱  
+Tomamos tu iPhone como parte de pago 💰  
+Entregas en Maquinista Savio y alrededores 🚚  
+Calidad Premium garantizada 💎
+</div>
 </section>
 
 <section id="todos">
@@ -299,17 +298,29 @@ Aceptamos tu iPhone como parte de pago.
 <div class="products" id="accesorioProducts"></div>
 </section>
 
+<section id="clientes">
+<h2 style="color:#ff9f3f;">CLIENTES ❤️</h2>
+<div class="clients-grid">
+<div class="client-box">Próximamente</div>
+<div class="client-box">Próximamente</div>
+<div class="client-box">Próximamente</div>
+<div class="client-box">Próximamente</div>
+<div class="client-box">Próximamente</div>
+</div>
+</section>
+
 </div>
 
 <footer>© 2026 MQ_IPHONES - Todos los derechos reservados</footer>
 
-<a class="insta-btn" href="https://www.instagram.com/" target="_blank">
+<!-- 🔥 CAMBIÁ EL LINK POR TU INSTAGRAM REAL -->
+<a class="insta-btn" href="https://www.instagram.com/mq_iphones" target="_blank">
 📲 Seguinos en Instagram
 </a>
 
 <script>
 
-/* IPHONES CON TUS IMÁGENES */
+/* IPHONES */
 const iphones=[
 {name:"iPhone 14 Pro",price:545,battery:"100%",storage:"128GB",img:"iphone14 pro.png"},
 {name:"iPhone 14",price:410,battery:"86%",storage:"128GB",img:"iphone14.png"},
@@ -343,7 +354,6 @@ ${isIphone ? `
 </div>
 `;
 });
-
 setTimeout(()=>{
 document.querySelectorAll(".product-card").forEach(card=>{
 card.classList.add("show");
@@ -365,7 +375,6 @@ document.getElementById(item.dataset.target)
 .scrollIntoView({behavior:"smooth"});
 });
 });
-
 </script>
 
 </body>
