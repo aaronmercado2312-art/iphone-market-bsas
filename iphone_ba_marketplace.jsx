@@ -5,17 +5,95 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MQ_IPHONES</title>
+
 <style>
+  /* ===== NUEVA PALETA AZUL (AGREGADO SIN BORRAR NADA) ===== */
+
+body{
+  background:#f4f9ff !important;
+  color:#1a1a1a !important;
+}
+
+body::before{
+  background:#4da3ff !important;
+}
+
+body::after{
+  background:#8ed0ff !important;
+}
+
+header{
+  background:linear-gradient(90deg,#4da3ff,#8ed0ff) !important;
+}
+
+.subtitle{
+  background:linear-gradient(90deg,#4da3ff,#8ed0ff) !important;
+}
+
+.orange-bar{
+  background:#4da3ff !important;
+}
+
+.categories{
+  background:#eaf4ff !important;
+}
+
+.categories li{
+  background:#d6ebff !important;
+  color:#1a1a1a !important;
+}
+
+.categories li:hover,
+.categories li.active{
+  background:#4da3ff !important;
+  color:white !important;
+}
+
+.location-top{
+  color:#4da3ff !important;
+}
+
+.hero img{
+  filter:drop-shadow(0 0 60px rgba(142,208,255,0.6)) !important;
+}
+
+.product-card{
+  background:white !important;
+  box-shadow:0 5px 15px rgba(0,0,0,0.05) !important;
+}
+
+.product-card:hover{
+  box-shadow:0 0 25px rgba(142,208,255,0.8) !important;
+}
+
+.product-card h3{
+  color:#4da3ff !important;
+}
+
+.details{
+  color:#555 !important;
+}
+
+.client-box{
+  background:white !important;
+}
+
+.client-box:hover{
+  box-shadow:0 0 25px rgba(142,208,255,0.8) !important;
+}
+
+footer{
+  color:#555 !important;
+}
 body{
   margin:0;
   font-family:Arial, sans-serif;
-  background:#f4f9ff; /* fondo claro */
-  color:#1a1a1a;
+  background:#111;
+  color:#fff;
   scroll-behavior:smooth;
   overflow-x:hidden;
 }
 
-/* EFECTOS DE FONDO CELESTES */
 body::before,
 body::after{
   content:"";
@@ -28,53 +106,49 @@ body::after{
 }
 
 body::before{
-  background:#b3e5ff;
+  background:#ff3b3f;
   top:-150px;
   left:-150px;
 }
 
 body::after{
-  background:#d0f0ff;
+  background:#ff9f3f;
   bottom:-150px;
   right:-150px;
 }
 
-/* HEADER */
 header{
   text-align:center;
   padding:60px 20px 10px 20px;
   font-size:3.5rem;
   font-weight:bold;
   text-transform:uppercase;
-  background:linear-gradient(90deg,#0077ff,#00c6ff);
+  background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
   color:white;
 }
 
-/* SUBTITULO */
 .subtitle{
   text-align:center;
   font-size:1.5rem;
   padding:25px;
-  background:linear-gradient(90deg,#0077ff,#00c6ff);
+  background:linear-gradient(90deg,#ff3b3f,#ff9f3f);
   color:white;
 }
 
 .orange-bar{
   height:40px;
-  background:#0077ff;
+  background:#ff3b3f;
 }
 
-/* CATEGORÍAS */
 .categories{
   width:100%;
   display:flex;
   justify-content:center;
-  background:white;
+  background:#1a1a1a;
   padding:15px 0;
   position:sticky;
   top:0;
   z-index:1000;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 .categories ul{
@@ -91,17 +165,14 @@ header{
   border-radius:8px;
   font-weight:bold;
   transition:all 0.3s ease;
-  background:#eaf6ff;
-  color:#0077ff;
+  background:#222;
 }
 
 .categories li:hover,
 .categories li.active{
-  background:#0077ff;
-  color:white;
+  background:#ff3b3f;
 }
 
-/* CONTENIDO */
 .content{
   padding:40px;
   max-width:1300px;
@@ -112,8 +183,13 @@ section{
   padding:100px 0;
 }
 
-/* HERO */
 .hero{
+  .logo-hero{
+  width:220px;
+  max-width:90%;
+  margin:40px 0 10px 0;
+  filter:drop-shadow(0 0 25px rgba(255,59,63,0.6));
+}
   min-height:100vh;
   display:flex;
   flex-direction:column;
@@ -122,16 +198,9 @@ section{
   text-align:center;
 }
 
-.logo-hero{
-  width:220px;
-  max-width:90%;
-  margin:40px 0 10px 0;
-  filter:drop-shadow(0 0 25px rgba(0,119,255,0.4));
-}
-
 .location-top{
   font-size:1.4rem;
-  color:#0077ff;
+  color:#ff9f3f;
   font-weight:bold;
   margin-bottom:25px;
 }
@@ -140,7 +209,7 @@ section{
   width:500px;
   max-width:95%;
   margin:30px 0;
-  filter:drop-shadow(0 0 40px rgba(0,119,255,0.3));
+  filter:drop-shadow(0 0 60px rgba(255,159,63,0.6));
   transition:0.5s;
 }
 
@@ -152,11 +221,10 @@ section{
   max-width:700px;
   font-size:1.2rem;
   line-height:1.6;
-  color:#333;
+  color:#ddd;
   margin-top:20px;
 }
 
-/* PRODUCTOS */
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
@@ -164,14 +232,13 @@ section{
 }
 
 .product-card{
-  background:white;
+  background:#1c1c1c;
   border-radius:15px;
   padding:15px;
   text-align:center;
   transition:0.4s;
   opacity:0;
   transform:translateY(40px);
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
 .product-card.show{
@@ -181,7 +248,7 @@ section{
 
 .product-card:hover{
   transform:scale(1.05);
-  box-shadow:0 0 25px rgba(0,119,255,0.3);
+  box-shadow:0 0 25px rgba(255,159,63,0.8);
 }
 
 .product-card img{
@@ -190,7 +257,7 @@ section{
 }
 
 .product-card h3{
-  color:#0077ff;
+  color:#ff9f3f;
 }
 
 .price{
@@ -200,16 +267,15 @@ section{
 
 .details{
   font-size:0.9rem;
-  color:#555;
+  color:#ccc;
 }
 
 .status{
-  color:#00aa66;
+  color:#00ff88;
   font-weight:bold;
   margin-top:5px;
 }
 
-/* CLIENTES */
 .clients-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
@@ -220,17 +286,11 @@ section{
 
 .client-box{
   width:180px;
-  height:320px;
+  height:320px; /* formato vertical tipo historia */
   border-radius:20px;
   overflow:hidden;
   transition:0.3s;
-  background:white;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
-}
-
-.client-box:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 25px rgba(0,119,255,0.3);
+  background:#1c1c1c;
 }
 
 .client-box img{
@@ -239,18 +299,33 @@ section{
   object-fit:cover;
 }
 
-/* INSTAGRAM */
+.client-box:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 25px rgba(255,159,63,0.9);
+}
+
+.client-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.client-box:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px rgba(255,159,63,0.8);
+}
+
 .insta-btn{
   position:fixed;
   bottom:20px;
   right:20px;
-  background:#0077ff;
+  background:#E1306C;
   color:white;
   padding:18px 30px;
   border-radius:50px;
   text-decoration:none;
   font-weight:bold;
-  box-shadow:0 0 20px rgba(0,119,255,0.4);
+  box-shadow:0 0 20px rgba(225,48,108,0.8);
   transition:0.3s;
   font-size:1.1rem;
 }
@@ -259,11 +334,10 @@ section{
   transform:scale(1.1);
 }
 
-/* FOOTER */
 footer{
   text-align:center;
   padding:20px;
-  color:#555;
+  color:#aaa;
 }
 </style>
 </head>
