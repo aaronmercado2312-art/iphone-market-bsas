@@ -273,6 +273,9 @@ Aceptamos tu iPhone como parte de pago.
 <li data-target="inicio" class="active">INICIO</li>
 <li data-target="todos">TODOS</li>
 <li data-target="iphones">IPHONES</li>
+
+<img src="mqiphone.png" alt="MQ Logo">
+
 <li data-target="accesorios">ACCESORIOS</li>
 <li data-target="clientes">CLIENTES ❤️</li>
 </ul>
