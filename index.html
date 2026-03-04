@@ -193,21 +193,28 @@ section{
 
 .clients-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
   gap:20px;
   margin-top:40px;
 }
 
 .client-box{
   background:#1c1c1c;
-  height:150px;
   border-radius:15px;
-  border:2px dashed #ff9f3f;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#777;
-  font-size:0.9rem;
+  overflow:hidden;
+  height:220px;
+  transition:0.3s;
+}
+
+.client-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.client-box:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px rgba(255,159,63,0.8);
 }
 
 .insta-btn{
@@ -289,9 +296,25 @@ Calidad Premium garantizada 💎
 <div class="products" id="accesorioProducts"></div>
 </section>
 
+<section id="clientes">
+<h2 style="color:#ff9f3f;">NUESTROS CLIENTES</h2>
+
+<div class="clients-grid">
+<div class="client-box"><img src="cliente1.png"></div>
+<div class="client-box"><img src="cliente2.png"></div>
+<div class="client-box"><img src="cliente3.png"></div>
+<div class="client-box"><img src="cliente4.png"></div>
+<div class="client-box"><img src="cliente5.png"></div>
+</div>
+
+</section>
+
 </div>
 
 <footer>© 2026 MQ_IPHONES - Todos los derechos reservados</footer>
+
+<script>
+
 /* FUNCIONAMIENTO DE CATEGORÍAS */
 const items=document.querySelectorAll(".categories li");
 
@@ -304,7 +327,6 @@ document.getElementById(item.dataset.target)
 .scrollIntoView({behavior:"smooth"});
 });
 });
-<script>
 
 /* IPHONES */
 const iphones=[
@@ -341,13 +363,11 @@ const accesorios=[
 {name:"Protectores de Cámaras",price:2500,img:"protectoresdecamara.png"}
 ];
 
-/* RENDER AUTOMÁTICO */
 function renderProducts(list,id){
 const container=document.getElementById(id);
 container.innerHTML="";
 
 list.forEach(p=>{
-
 let isIphone = p.battery !== undefined;
 
 container.innerHTML+=`
@@ -376,8 +396,10 @@ renderProducts(iphones,"iphoneProducts");
 renderProducts(accesorios,"accesorioProducts");
 
 </script>
+
 <a class="insta-btn" href="https://www.instagram.com/mq_iphone?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
 📲 Seguinos en Instagram
 </a>
+
 </body>
 </html>
