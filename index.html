@@ -292,7 +292,18 @@ Calidad Premium garantizada 💎
 </div>
 
 <footer>© 2026 MQ_IPHONES - Todos los derechos reservados</footer>
+/* FUNCIONAMIENTO DE CATEGORÍAS */
+const items=document.querySelectorAll(".categories li");
 
+items.forEach(item=>{
+item.addEventListener("click",()=>{
+items.forEach(i=>i.classList.remove("active"));
+item.classList.add("active");
+
+document.getElementById(item.dataset.target)
+.scrollIntoView({behavior:"smooth"});
+});
+});
 <script>
 
 /* IPHONES */
