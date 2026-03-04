@@ -13,9 +13,10 @@ body{
   color:#fff;
   scroll-behavior:smooth;
   overflow-x:hidden;
+  position:relative;
 }
 
-/* EFECTO FONDO LLAMATIVO */
+/* FONDO DIFUMINADO ORIGINAL */
 body::before,
 body::after{
   content:"";
@@ -24,7 +25,7 @@ body::after{
   height:500px;
   border-radius:50%;
   filter:blur(150px);
-  z-index:-1;
+  z-index:-2;
 }
 
 body::before{
@@ -37,6 +38,25 @@ body::after{
   background:#ff9f3f;
   bottom:-150px;
   right:-150px;
+}
+
+/* 🔴 CÍRCULOS ESTÁTICOS CON PATRÓN */
+.circle{
+  position:fixed;
+  width:15px;
+  height:15px;
+  background:#ff3b3f;
+  border-radius:50%;
+  opacity:0.4;
+  z-index:-1;
+}
+
+.left-pattern .circle{
+  left:20px;
+}
+
+.right-pattern .circle{
+  right:20px;
 }
 
 /* HEADER */
@@ -219,6 +239,24 @@ footer{
 
 <body>
 
+<!-- CÍRCULOS IZQUIERDA -->
+<div class="left-pattern">
+  <div class="circle" style="top:100px;"></div>
+  <div class="circle" style="top:300px;"></div>
+  <div class="circle" style="top:500px;"></div>
+  <div class="circle" style="top:700px;"></div>
+  <div class="circle" style="top:900px;"></div>
+</div>
+
+<!-- CÍRCULOS DERECHA -->
+<div class="right-pattern">
+  <div class="circle" style="top:200px;"></div>
+  <div class="circle" style="top:400px;"></div>
+  <div class="circle" style="top:600px;"></div>
+  <div class="circle" style="top:800px;"></div>
+  <div class="circle" style="top:1000px;"></div>
+</div>
+
 <header>MQ_IPHONES</header>
 
 <div class="subtitle">
@@ -271,13 +309,12 @@ Aceptamos tu iPhone como parte de pago.
 
 <script>
 
-/* SOLO LOS IPHONES QUE PEDISTE */
+/* IPHONES CON TUS IMÁGENES */
 const iphones=[
-{name:"iPhone 14 Pro",price:545,battery:"100%",storage:"128GB",img:"https://via.placeholder.com/300"},
-{name:"iPhone 14",price:410,battery:"86%",storage:"128GB",img:"https://via.placeholder.com/300"},
-{name:"iPhone 13 Pro",price:510,battery:"-",storage:"-",img:"https://via.placeholder.com/300"},
-{name:"iPhone 13",price:385,battery:"+80%",storage:"128GB",img:"https://via.placeholder.com/300"},
-{name:"iPhone 11",price:265,battery:"100%",storage:"64GB",img:"https://via.placeholder.com/300"}
+{name:"iPhone 14 Pro",price:545,battery:"100%",storage:"128GB",img:"iphone14 pro.png"},
+{name:"iPhone 14",price:410,battery:"86%",storage:"128GB",img:"iphone14.png"},
+{name:"iPhone 13",price:385,battery:"+80%",storage:"128GB",img:"iphone13.png"},
+{name:"iPhone 11",price:265,battery:"100%",storage:"64GB",img:"iphone11.png"}
 ];
 
 const accesorios=[
