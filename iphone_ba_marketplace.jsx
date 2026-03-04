@@ -330,11 +330,33 @@ const iphones=[
 /* ACCESORIOS (SOLO PRECIO EN ARS) */
 const accesorios=[
 {name:"Lightning 1,2m",price:6000,img:"https://via.placeholder.com/300"},
-{name:"Silicone case iPhone 12/12Pro",price:7000,img:"https://via.placeholder.com/300"},
+{name:"Silicone case iPhone 12/12 Pro",price:7000,img:"https://via.placeholder.com/300"},
 {name:"Silicone case iPhone 13",price:7000,img:"https://via.placeholder.com/300"},
 {name:"Earpods",price:9000,img:"https://via.placeholder.com/300"},
 {name:"Airpods",price:24000,img:"https://via.placeholder.com/300"},
-{name:"Silicone Case iPh 11 Pro Max",price:8000,img:"https://via.placeholder.com/300"}
+{name:"Silicone Case iPh 11 Pro Max",price:8000,img:"https://via.placeholder.com/300"},
+
+{name:"Silicone Case iPh 15",price:7000,img:"https://via.placeholder.com/300"},
+{name:"Silicone Case iPh 11",price:7000,img:"https://via.placeholder.com/300"},
+{name:"Silicone Case iPh 13 Pro",price:7000,img:"https://via.placeholder.com/300"},
+{name:"Silicone Case iPh 14 Pro",price:7000,img:"https://via.placeholder.com/300"},
+{name:"Silicone Case iPh 16 Pro Max",price:7000,img:"https://via.placeholder.com/300"},
+{name:"Silicone Case iPh 16 / 16 Pro",price:7000,img:"https://via.placeholder.com/300"},
+
+{name:"Transparentes iPh 11 / 14 Pro",price:4500,img:"https://via.placeholder.com/300"},
+{name:"MagSafe iPh 12 / 12 Pro / 13 Pro / 14 Pro / 15",price:10000,img:"https://via.placeholder.com/300"},
+{name:"Fashion Case iPh 11 / 12 / 14 Pro",price:8500,img:"https://via.placeholder.com/300"},
+{name:"Clear Case iPh 12 / 12 Pro / 13 Pro / 14 Pro",price:8000,img:"https://via.placeholder.com/300"},
+{name:"Transparentes Magnéticas iPh 12 / 13 / 13 Pro / 16 Pro Max / 17 Air",price:5000,img:"https://via.placeholder.com/300"},
+{name:"Importadas con Correa iPh 11 / 13",price:8000,img:"https://via.placeholder.com/300"},
+{name:"Case Animal Print",price:9000,img:"https://via.placeholder.com/300"},
+{name:"Magnetic iPh 13 / 14",price:8500,img:"https://via.placeholder.com/300"},
+{name:"Fashion Case iPh 11 / 13 / 13 Pro",price:8000,img:"https://via.placeholder.com/300"},
+{name:"Metal Case iPh 13 / 14",price:8500,img:"https://via.placeholder.com/300"},
+{name:"Glass 9D 11 / 13 / 13 Pro / 14 Pro / 15 / 16",price:1800,img:"https://via.placeholder.com/300"},
+{name:"Antiespía XR / 11 / 12 / 13 / 14 Pro",price:2500,img:"https://via.placeholder.com/300"},
+{name:"Cargadores MagSafe",price:0,img:"https://via.placeholder.com/300"},
+{name:"Protectores de Cámaras",price:2500,img:"https://via.placeholder.com/300"}
 ];
 
 function renderProducts(list,id,isIphone){
