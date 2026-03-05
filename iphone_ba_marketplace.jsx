@@ -339,6 +339,44 @@ footer{
   padding:20px;
   color:#aaa;
 }
+  /* ===== LETRAS NEGRAS DEFINITIVAS ===== */
+
+body{
+  color:#000 !important;
+  background:#f4f9ff !important;
+}
+
+header,
+.subtitle,
+h1,h2,h3,h4,h5,h6,
+p,
+li,
+.price,
+.details,
+.status,
+.hero-text,
+.location-top,
+footer{
+  color:#000 !important;
+}
+
+.categories li{
+  color:#000 !important;
+}
+
+.categories li:hover,
+.categories li.active{
+  color:#000 !important;
+}
+
+.product-card{
+  background:#ffffff !important;
+  color:#000 !important;
+}
+
+.client-box{
+  background:#ffffff !important;
+}
 </style>
 </head>
 
