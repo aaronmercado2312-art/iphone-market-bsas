@@ -142,10 +142,9 @@ header{
 
 .categories{
   width:100%;
-  display:flex;
-  justify-content:center;
-  background:#1a1a1a;
-  padding:15px 0;
+  overflow-x:auto;
+  background:#eaf4ff;
+  padding:10px 0;
   position:sticky;
   top:0;
   z-index:1000;
@@ -154,9 +153,19 @@ header{
 .categories ul{
   list-style:none;
   display:flex;
-  gap:20px;
-  padding:0;
+  gap:10px;
+  padding:0 10px;
   margin:0;
+  min-width:max-content;
+}
+
+.categories li{
+  flex:0 0 auto;
+  padding:10px 16px;
+  border-radius:8px;
+  font-weight:bold;
+  cursor:pointer;
+  white-space:nowrap;
 }
 
 .categories li{
